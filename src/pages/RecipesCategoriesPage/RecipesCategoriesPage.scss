@@ -1,0 +1,14 @@
+.recipesCategories{
+
+  &__title{
+    margin-bottom: 30px;
+    color: lightgrey;
+  }
+
+  &__list{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+}
