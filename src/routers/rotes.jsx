@@ -1,17 +1,28 @@
 import React from "react";
 //_____________________________________________________________________________________
-import RecipesPage from "../pages/RecipesCategoriesPage/RecipesCategoriesPage";
+import RecipesCategoriesPage from "../pages/RecipesCategoriesPage/RecipesCategoriesPage";
+import SingleCategoryPage from "../pages/SingleCategoryPage/SingleCategoryPage";
 //_____________________________________________________________________________________
 
 export const privateRoutes = [
   {
     path: "/",
-    component: <RecipesPage/>,
+    component: <RecipesCategoriesPage/>,
+    exact: true,
+  },
+  {
+    path: "/categories",
+    component: <RecipesCategoriesPage/>,
+    exact: true,
+  },
+  {
+    path: "/categories/:categoryName",
+    component: <SingleCategoryPage/>,
     exact: true,
   },
   {
     path: "*",
-    component: <RecipesPage/>,
+    component: <RecipesCategoriesPage/>,
     exact: true,
   },
 ]

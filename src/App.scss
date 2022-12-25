@@ -7,7 +7,7 @@
 html {
   overflow-x: hidden;
   background-size: cover;
-  background-color: rgba(black, 0.9);
+  scroll-behavior: smooth;
 }
 
 li {
@@ -24,7 +24,6 @@ img {
 }
 
 .App {
-  position: relative;
   text-align: center;
   min-height: 100vh;
   height: max-content;

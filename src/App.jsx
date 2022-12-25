@@ -1,13 +1,17 @@
 import React from "react";
+import {BrowserRouter} from "react-router-dom";
 //_____________________________________________________________________________________
 import './App.scss';
-import RecipesPage from "./pages/RecipesCategoriesPage/RecipesCategoriesPage";
+import AppRouter from "./routers/AppRouter/AppRouter";
 //_____________________________________________________________________________________
 
 function App() {
   return (
     <div className="App container">
-      <RecipesPage/>
+      <BrowserRouter>
+        <AppRouter/>
+      </BrowserRouter>
+
     </div>
   );
 }

@@ -7,5 +7,9 @@ export const recipes = {
   getRecipesCategories: () => {
     return axios.get(`${URL}categories.php`);
   },
+
+  filterRecipesByCategories: (category) => {
+    return axios.get(`${URL}filter.php?c=${category}`);
+  },
 };
 

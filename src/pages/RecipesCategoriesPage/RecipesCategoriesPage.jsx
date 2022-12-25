@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import './RecipesCategoriesPage.scss'
 import {GET_RECIPES_CATEGORIES_REQUEST} from "../../redux/actions/recipes";
 import RecipeCategory from "../../components/RecipeCategory/RecipeCategory";
+import Hero from "../../components/Hero/Hero";
 //_____________________________________________________________________________________
 
 const RecipesCategoriesPage = () => {
@@ -20,7 +21,10 @@ const RecipesCategoriesPage = () => {
 
   return (
     <main className='recipesCategories'>
-      <h1 className='recipesCategories__title'> Recipes categories </h1>
+
+      <Hero/>
+
+      <h1 className='recipesCategories__title' id='recipesCategories__title'> Recipes categories </h1>
       {recipesCategoriesLoading
         ? <h3> Loading... </h3>
         : <div className='recipesCategories__list'>
@@ -29,6 +33,7 @@ const RecipesCategoriesPage = () => {
         </div>
 
       }
+
     </main>
   );
 };
