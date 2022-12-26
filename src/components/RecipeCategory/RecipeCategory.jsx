@@ -24,9 +24,10 @@ const RecipeCategory = ({recipeCategory}) => {
         <h2 className='recipeCategory__title'>
           {recipeCategory.idCategory}. {recipeCategory.strCategory}
         </h2>
-        <p className='recipeCategory__description'>
-          {recipeCategory.strCategoryDescription}
-        </p>
+
+        {/*<p className='recipeCategory__description'>*/}
+        {/*  {recipeCategory.strCategoryDescription}*/}
+        {/*</p>*/}
       </div>
     </div>
   );

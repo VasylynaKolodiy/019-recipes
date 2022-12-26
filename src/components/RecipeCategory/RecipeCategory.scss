@@ -1,29 +1,58 @@
 .recipeCategory {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-end;
+  justify-content: center;
   gap: 50px;
   text-align: left;
-  padding: 15px;
-  background-color: lightgrey;
+  padding: 25px;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.17) 0 -23px 25px 0 inset, rgba(0, 0, 0, 0.15) 0 -36px 30px 0 inset, rgba(0, 0, 0, 0.1) 0 -79px 40px 0 inset, rgba(0, 0, 0, 0.06) 0 2px 1px, rgba(0, 0, 0, 0.09) 0 4px 2px, rgba(0, 0, 0, 0.09) 0 8px 4px, rgba(0, 0, 0, 0.09) 0 16px 8px, rgba(0, 0, 0, 0.09) 0 32px 16px;
+  position: relative;
+  height: 365px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  transition: 0.3s linear;
+  background: url("../../assets/img/thema-main.jpg") center top no-repeat;
+
+
+  &:hover{
+    .recipeCategory__image img{
+      transform: scale(1.1);
+    }
+  }
 
   &__image {
-    width: 30%;
+    width: 100%;
+
     & img {
       width: 100%;
       height: auto;
       object-fit: cover;
+      transition: .3s linear;
     }
   }
 
-  &__info{
-    width: 65%;
+  &__info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    width: 100%;
     display: flex;
     gap: 20px;
     flex-direction: column;
+  }
+
+  &__title {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    color: white;
+  }
+
+  &__description {
+    color: white;
+    padding: 5px;
   }
 
 }

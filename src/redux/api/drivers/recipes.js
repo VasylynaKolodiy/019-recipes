@@ -1,6 +1,6 @@
 import axios from "axios";
 //_____________________________________________________________________________________
-import {URL} from "../../../helpers/constants"
+import {URL, URL_KEY} from "../../../helpers/constants"
 //_____________________________________________________________________________________
 
 export const recipes = {
@@ -10,6 +10,10 @@ export const recipes = {
 
   filterRecipesByCategories: (category) => {
     return axios.get(`${URL}filter.php?c=${category}`);
+  },
+
+  getLatestRecipes: () => {
+    return axios.get(`${URL_KEY}latest.php`);
   },
 };
 
