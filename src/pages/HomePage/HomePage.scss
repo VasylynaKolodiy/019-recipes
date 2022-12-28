@@ -1,4 +1,4 @@
-.recipesCategories{
+.homePage{
   &__title{
     margin-top: 100vh;
     margin-bottom: 30px;
@@ -8,7 +8,8 @@
   &__list{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
+    grid-gap: 40px;
+    margin-bottom: 40px;
   }
 
 }

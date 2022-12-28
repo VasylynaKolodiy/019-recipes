@@ -1,18 +1,18 @@
 import React from "react";
 //_____________________________________________________________________________________
-import RecipesCategoriesPage from "../pages/RecipesCategoriesPage/RecipesCategoriesPage";
+import HomePage from "../pages/HomePage/HomePage";
 import SingleCategoryPage from "../pages/SingleCategoryPage/SingleCategoryPage";
 //_____________________________________________________________________________________
 
 export const privateRoutes = [
   {
     path: "/",
-    component: <RecipesCategoriesPage/>,
+    component: <HomePage/>,
     exact: true,
   },
   {
     path: "/categories",
-    component: <RecipesCategoriesPage/>,
+    component: <HomePage/>,
     exact: true,
   },
   {
@@ -22,7 +22,7 @@ export const privateRoutes = [
   },
   {
     path: "*",
-    component: <RecipesCategoriesPage/>,
+    component: <HomePage/>,
     exact: true,
   },
 ]

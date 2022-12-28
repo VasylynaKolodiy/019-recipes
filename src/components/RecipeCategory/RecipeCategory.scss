@@ -4,19 +4,21 @@
   justify-content: center;
   gap: 50px;
   text-align: left;
-  padding: 25px;
+  padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   position: relative;
-  height: 365px;
+  height: 300px;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   transition: 0.3s linear;
   background: url("../../assets/img/thema-main.jpg") center top no-repeat;
+  filter: grayscale(100%);
 
-
-  &:hover{
-    .recipeCategory__image img{
-      transform: scale(1.1);
+  &:hover {
+    box-shadow: rgba(255, 255, 255, 0.94) 0 0  25px;
+    filter: grayscale(0);
+    .recipeCategory__title{
+      padding-bottom: 7px;
     }
   }
 
@@ -35,7 +37,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding: 15px;
     width: 100%;
     display: flex;
     gap: 20px;
@@ -43,11 +44,14 @@
   }
 
   &__title {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 7px;
+    padding-bottom: 293px;
     width: 100%;
     text-align: center;
     color: white;
+    border-radius: 5px;
+    transition: .3s linear;
   }
 
   &__description {

@@ -15,8 +15,8 @@ const RecipeCategory = ({recipeCategory}) => {
       <div className='recipeCategory__image'>
         <img
           src={recipeCategory.strCategoryThumb}
-          alt='Recipe category'
-          title='Recipe category'
+          alt={recipeCategory.strCategory}
+          title={recipeCategory.strCategory}
         />
       </div>
 

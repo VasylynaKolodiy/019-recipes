@@ -1,0 +1,28 @@
+.subscribe{
+  height: 100vh;
+  background: url('../../assets/img/thema-subscribe.jpg') center bottom no-repeat;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+
+  &__container{
+    margin: auto 0 auto 0;
+    text-align: left;
+    width: 40%;
+    padding: 0;
+  }
+
+  &__title{
+    margin-bottom: 30px;
+  }
+
+  &__text{
+    margin-bottom: 30px;
+  }
+
+  button{
+    border: 1px solid gray !important;
+  }
+
+}

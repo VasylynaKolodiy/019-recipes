@@ -8,6 +8,8 @@ html {
   overflow-x: hidden;
   background-size: cover;
   scroll-behavior: smooth;
+  background-color: black;
+  color: white;
 }
 
 li {
@@ -30,7 +32,7 @@ img {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1500px;
   padding: 20px 50px;
   margin: 0 auto;
 }
