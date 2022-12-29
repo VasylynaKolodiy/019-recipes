@@ -3,6 +3,15 @@
   &__title{
     padding: 30px;
   }
+  &__text{
+    margin-bottom: 30px;
+  }
 
+  .mealsList{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    justify-content: space-between;
+  }
 
 }

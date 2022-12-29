@@ -7,7 +7,7 @@ import MealCard from "../MealCard/MealCard";
 const LatestRecipes = ({meals=[]}) => {
 
   return (
-    <section className='latestRecipes'>
+    <section className='latestRecipes container'>
 
       <div className='latestRecipes__info'>
         <h2 className='latestRecipes__title' id='latestRecipes__title'> Latest Meals </h2>
@@ -15,7 +15,9 @@ const LatestRecipes = ({meals=[]}) => {
           sunt culpa qui officia deserunmollit anim id est laborum.</p>
       </div>
 
-      {meals.map((meal) => <MealCard meal={meal} key={meal.idMeal} />)}
+      <div className='mealsList'>
+        {meals.map((meal) => <MealCard meal={meal} key={meal.idMeal} />)}
+      </div>
 
 
     </section>

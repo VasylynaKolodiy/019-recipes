@@ -49,8 +49,6 @@ const HomePage = () => {
 
       <LatestRecipes meals={latestRecipesState}/>
 
-
-
     </main>
   );
 };
