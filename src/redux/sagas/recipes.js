@@ -22,7 +22,17 @@ function* filterRecipesByCategories(action) {
   }
 }
 
+function* getLatestRecipes() {
+  try {
+    const res = yield call(Api.recipes.getLatestRecipes);
+    yield put({type: recipesActions.GET_LATEST_RECIPES_SUCCESS, payload: res.data.meals});
+  } catch (err) {
+    yield put({type: recipesActions.GET_LATEST_RECIPES_FAIL, payload: {error: err.message}});
+  }
+}
+
 export default all([
   takeLatest(recipesActions.GET_RECIPES_CATEGORIES_REQUEST, getRecipesCategories),
   takeLatest(recipesActions.FILTER_RECIPES_BY_CATEGORIES_REQUEST, filterRecipesByCategories),
+  takeLatest(recipesActions.GET_LATEST_RECIPES_REQUEST, getLatestRecipes),
 ])

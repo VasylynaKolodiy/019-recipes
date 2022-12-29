@@ -7,7 +7,7 @@ import AppRouter from "./routers/AppRouter/AppRouter";
 
 function App() {
   return (
-    <div className="App container">
+    <div className="App">
       <BrowserRouter>
         <AppRouter/>
       </BrowserRouter>

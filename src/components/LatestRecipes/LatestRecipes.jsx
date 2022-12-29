@@ -1,17 +1,21 @@
 import React from 'react';
 //_____________________________________________________________________________________
 import './LatestRecipes.scss'
+import MealCard from "../MealCard/MealCard";
 //_____________________________________________________________________________________
 
-const LatestRecipes = () => {
+const LatestRecipes = ({meals=[]}) => {
+
   return (
     <section className='latestRecipes'>
 
       <div className='latestRecipes__info'>
-        <h2> Latest Meals </h2>
-        <p> Excepteur sint occaecat cupidatat non qui proident,
-          sunt culpa qui officia deserunmollit anim id est laborum .</p>
+        <h2 className='latestRecipes__title' id='latestRecipes__title'> Latest Meals </h2>
+        <p className='latestRecipes__text'> Excepteur sint occaecat cupidatat non qui proident,
+          sunt culpa qui officia deserunmollit anim id est laborum.</p>
       </div>
+
+      {meals.map((meal) => <MealCard meal={meal} key={meal.idMeal} />)}
 
 
     </section>

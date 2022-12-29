@@ -5,6 +5,9 @@ import {
   FILTER_RECIPES_BY_CATEGORIES_REQUEST,
   FILTER_RECIPES_BY_CATEGORIES_SUCCESS,
   FILTER_RECIPES_BY_CATEGORIES_FAIL,
+  GET_LATEST_RECIPES_REQUEST,
+  GET_LATEST_RECIPES_SUCCESS,
+  GET_LATEST_RECIPES_FAIL,
 } from "../actions/recipes";
 //_____________________________________________________________________________________
 
@@ -12,6 +15,7 @@ const initialState = {
   loading: false,
   recipesCategories: [],
   recipes: [],
+  latestRecipes: [],
 };
 
 export default function recipes(state = initialState, action) {
@@ -50,6 +54,25 @@ export default function recipes(state = initialState, action) {
       };
 
     case FILTER_RECIPES_BY_CATEGORIES_FAIL:
+      return {
+        ...state,
+        loading: false,
+      };
+
+    case GET_LATEST_RECIPES_REQUEST:
+      return {
+        ...state,
+        loading: true
+      };
+
+    case GET_LATEST_RECIPES_SUCCESS:
+      return {
+        ...state,
+        latestRecipes: action.payload,
+        loading: false,
+      };
+
+    case GET_LATEST_RECIPES_FAIL:
       return {
         ...state,
         loading: false,
