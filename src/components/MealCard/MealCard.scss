@@ -1,11 +1,11 @@
 .mealCard {
   position: relative;
+  margin: 0 10px;
 
   &__image img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    float: left;
   }
 
   &__name {
@@ -21,16 +21,16 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 0;
-    height: 0;
+    width: 20px;
+    height: 20px;
     border-bottom: 100px solid rgba(255, 0, 0, 0.7);
     border-left: 100px solid transparent;
   }
 
   &__area{
     position: absolute;
-    top: 42px;
-    left: -69px;
+    top: 46px;
+    left: -72px;
     transform: rotate(-45deg);
   }
 

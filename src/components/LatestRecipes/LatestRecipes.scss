@@ -1,17 +1,59 @@
 .latestRecipes{
+  margin: 0 -10px 200px -10px;
 
   &__title{
     padding: 30px;
-  }
-  &__text{
-    margin-bottom: 30px;
+    font-size: 30px;
   }
 
-  .mealsList{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-    justify-content: space-between;
+  &__text{
+    margin-bottom: 50px;
+    font-size: 22px;
+  }
+
+
+  .slick-slider.slick-initialized {
+    .slick-arrow {
+      width: 50px;
+      height: 50px;
+      background: rgba(black, 0.5);
+      border: 1px solid white !important;
+      border-radius: 100%;
+      transition: .3s linear;
+      &:hover {
+        background: rgba(white, 0.6);
+        border: 1px solid black !important;
+        &.slick-next:before,
+        &.slick-prev:before{
+          color: black;
+        }
+      }
+    }
+
+    .slick-arrow.slick-prev {
+      left: 32px;
+      z-index: 20;
+    }
+
+    .slick-arrow.slick-next {
+      right: 32px;
+    }
+  }
+  .slick-next:before {
+    content: '»';
+    font-size: 40px;
+    position: relative;
+    top: -9px;
+    left: 2px;
+    transition: .3s linear;
+  }
+  .slick-prev:before {
+    content: '«';
+    font-size: 40px;
+    position: relative;
+    top: -9px;
+    right: 2px;
+    transition: .3s linear;
   }
 
 }

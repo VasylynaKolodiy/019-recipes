@@ -8,9 +8,9 @@ import Arrow from "../Arrow/Arrow";
 const Subscribe = () => {
   return (
     <section className='subscribe'>
-      {/*<a href='#recipesCategories__title'>*/}
-      {/*  <Arrow />*/}
-      {/*</a>*/}
+      <a href='#recipesCategories__title'>
+        <Arrow direction='up' />
+      </a>
       <div className='subscribe__container container'>
         <h2 className='subscribe__title'>Subscribe to our Newsletter</h2>
         <p className='subscribe__text'>Fusce id velit placerat,

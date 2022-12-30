@@ -4,8 +4,17 @@
   position: absolute;
   left: 50%;
   margin-left: -30px;
-  bottom: 20px;
+  bottom: 30px;
   cursor: pointer;
+}
+
+.arrows.down {
+  bottom: 30px;
+}
+
+.arrows.up {
+  top: 30px;
+  transform: rotate(180deg);
 }
 
 .arrows path {

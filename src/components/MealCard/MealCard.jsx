@@ -3,11 +3,11 @@ import React from 'react';
 import './MealCard.scss'
 //_____________________________________________________________________________________
 
-const MealCard = ({meal={}}) => {
+const MealCard = ({meal = {}}) => {
   return (
     <div className='mealCard'>
       <div className='mealCard__image'>
-        <img src={meal.strMealThumb} alt={meal.strMealThumb} title={meal.strMealThumb} />
+        <img src={meal.strMealThumb} alt={meal.strMealThumb} title={meal.strMealThumb}/>
       </div>
 
       <h3 className='mealCard__name'>{meal.strMeal}</h3>
@@ -15,13 +15,6 @@ const MealCard = ({meal={}}) => {
       <p className='mealCard__triangle'>
         <span className='mealCard__area'>{meal.strArea} {meal.strCategory}</span>
       </p>
-
-      <div className='mealCard__info'>
-
-
-
-      </div>
-
     </div>
   );
 };
