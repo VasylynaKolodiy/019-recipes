@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 //_____________________________________________________________________________________
 import './SingleCategoryPage.scss'
 import {FILTER_RECIPES_BY_CATEGORIES_REQUEST} from "../../redux/actions/recipes";
-import RecipeItem from "../../components/RecipeItem/RecipeItem";
+import MealCard from "../../components/MealCard/MealCard";
 //_____________________________________________________________________________________
 
 const SingleCategoryPage = () => {
@@ -22,10 +22,11 @@ const SingleCategoryPage = () => {
   console.log(recipesByCategoryState, 'recipesByCategoryState')
 
   return (
-    <main className='singleCategory'>
+    <main className='singleCategory container'>
 
       {recipesByCategoryState.map((recipe) => (
-        <RecipeItem recipe={recipe} key={recipe.idMeal} />
+        // <RecipeItem recipe={recipe} key={recipe.idMeal} />
+        <MealCard meal={recipe} key={recipe.idMeal}/>
       ))
       }
 

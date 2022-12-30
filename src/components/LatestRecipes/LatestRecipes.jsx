@@ -1,5 +1,5 @@
 import React from 'react';
-// Import css files for slider
+// *Import css files for slider*
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -13,7 +13,7 @@ const LatestRecipes = ({meals = []}) => {
   const settings = {
     dots: false,
     infinite: true,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 2000,
     slidesToShow: 4,
     slidesToScroll: 1,
