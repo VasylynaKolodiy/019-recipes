@@ -15,5 +15,9 @@ export const recipes = {
   getLatestRecipes: () => {
     return axios.get(`${URL_KEY}latest.php`);
   },
+
+  getMeal: (id) => {
+    return axios.get(`${URL}lookup.php?i=${id}`);
+  },
 };
 

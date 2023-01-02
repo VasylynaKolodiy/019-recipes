@@ -28,7 +28,7 @@ const LatestRecipes = ({meals = []}) => {
           sunt culpa qui officia deserunmollit anim id est laborum.</p>
       </div>
 
-      <div className='mealsList'>
+      <div className='latestRecipes__list'>
         <Slider {...settings}>
           {meals.map((meal) => (
             <MealCard meal={meal} key={meal.idMeal}/>

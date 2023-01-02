@@ -8,6 +8,9 @@ import {
   GET_LATEST_RECIPES_REQUEST,
   GET_LATEST_RECIPES_SUCCESS,
   GET_LATEST_RECIPES_FAIL,
+  GET_MEAL_REQUEST,
+  GET_MEAL_SUCCESS,
+  GET_MEAL_FAIL,
 } from "../actions/recipes";
 //_____________________________________________________________________________________
 
@@ -16,6 +19,7 @@ const initialState = {
   recipesCategories: [],
   recipes: [],
   latestRecipes: [],
+  meal: {},
 };
 
 export default function recipes(state = initialState, action) {
@@ -73,6 +77,25 @@ export default function recipes(state = initialState, action) {
       };
 
     case GET_LATEST_RECIPES_FAIL:
+      return {
+        ...state,
+        loading: false,
+      };
+
+    case GET_MEAL_REQUEST:
+      return {
+        ...state,
+        loading: true
+      };
+
+    case GET_MEAL_SUCCESS:
+      return {
+        ...state,
+        meal: action.payload,
+        loading: false,
+      };
+
+    case GET_MEAL_FAIL:
       return {
         ...state,
         loading: false,

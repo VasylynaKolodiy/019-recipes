@@ -2,6 +2,7 @@ import React from "react";
 //_____________________________________________________________________________________
 import HomePage from "../pages/HomePage/HomePage";
 import SingleCategoryPage from "../pages/SingleCategoryPage/SingleCategoryPage";
+import MealPage from "../pages/MealPage/MealPage";
 //_____________________________________________________________________________________
 
 export const privateRoutes = [
@@ -11,13 +12,13 @@ export const privateRoutes = [
     exact: true,
   },
   {
-    path: "/categories",
-    component: <HomePage/>,
+    path: "/:categoryName",
+    component: <SingleCategoryPage/>,
     exact: true,
   },
   {
-    path: "/categories/:categoryName",
-    component: <SingleCategoryPage/>,
+    path: "/:categoryName/:mealID",
+    component: <MealPage/>,
     exact: true,
   },
   {

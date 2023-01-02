@@ -5,12 +5,14 @@ import {useDispatch, useSelector} from "react-redux";
 import './SingleCategoryPage.scss'
 import {FILTER_RECIPES_BY_CATEGORIES_REQUEST} from "../../redux/actions/recipes";
 import MealCard from "../../components/MealCard/MealCard";
+import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 //_____________________________________________________________________________________
 
 const SingleCategoryPage = () => {
   const params = useParams().categoryName;
   const dispatch = useDispatch();
   const recipesByCategoryState = useSelector((state) => state.recipes.recipes);
+  const recipesByCategoryLoading = useSelector((state) => state.recipes.loading);
 
   useEffect(() => {
     dispatch({
@@ -19,15 +21,23 @@ const SingleCategoryPage = () => {
     })
   }, [params])
 
-  console.log(recipesByCategoryState, 'recipesByCategoryState')
+  console.log(recipesByCategoryState[0], 'recipesByCategoryState[0]')
 
   return (
     <main className='singleCategory container'>
 
-      {recipesByCategoryState.map((recipe) => (
-        // <RecipeItem recipe={recipe} key={recipe.idMeal} />
-        <MealCard meal={recipe} key={recipe.idMeal}/>
-      ))
+      <BreadCrumbs name={params}/>
+
+      <h1 className='singleCategory__title'>Recipes by category {params}</h1>
+
+      {recipesByCategoryLoading
+        ? <h3>Loading...</h3>
+        : <div className='mealsList'>
+          {recipesByCategoryState.map((recipe) => (
+            <MealCard meal={recipe} key={recipe.idMeal}/>
+          ))
+          }
+        </div>
       }
 
 

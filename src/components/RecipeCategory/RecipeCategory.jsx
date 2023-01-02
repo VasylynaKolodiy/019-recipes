@@ -10,7 +10,7 @@ const RecipeCategory = ({recipeCategory}) => {
   return (
     <div
       className='recipeCategory'
-      onClick={() => navigate(`/categories/${recipeCategory.strCategory}`)}
+      onClick={() => navigate(`/${recipeCategory.strCategory}`)}
     >
       <div className='recipeCategory__image'>
         <img

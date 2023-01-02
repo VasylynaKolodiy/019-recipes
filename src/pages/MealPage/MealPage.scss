@@ -1,0 +1,72 @@
+.meal{
+  margin-top: 85px;
+
+  &__title{
+    margin-bottom: 50px;
+  }
+
+  &__subtitle{
+    margin-bottom: 30px;
+  }
+
+  &__info{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 50px;
+    margin-bottom: 50px;
+  }
+
+  &__image{
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+
+    & img{
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
+  }
+
+  &__instructions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    text-align: left;
+    font-size: 20px;
+  }
+  &__ingredients{
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+  }
+  &__ingredients:not(:last-child){
+    border-bottom: 1px solid gray;
+  }
+  &__list{
+    //width: 55%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-bottom: 1px solid gray;
+    //flex-direction: column;
+    //align-items: flex-start;
+    //justify-content: flex-start;
+  }
+  &__ingredientImage{
+    width: 100px;
+    height: auto;
+    & img{
+      height: auto;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

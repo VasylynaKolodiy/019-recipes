@@ -1,14 +1,20 @@
 .latestRecipes{
-  margin: 0 -10px 200px -10px;
+  //margin: 0 -10px 200px -10px;
+  margin-bottom: 200px;
 
   &__title{
     padding: 30px;
     font-size: 30px;
+    scroll-margin-top: 5rem;
   }
 
   &__text{
     margin-bottom: 50px;
     font-size: 22px;
+  }
+
+  &__list{
+    margin: 0 auto;
   }
 
 
