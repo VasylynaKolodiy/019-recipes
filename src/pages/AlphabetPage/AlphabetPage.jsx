@@ -28,7 +28,7 @@ const AlphabetPage = () => {
       <div className='alphabet__list'>
         {alphabet.map((symb) => <span
           className={`alphabet__letter ${letter.toUpperCase() === symb.toUpperCase() ? 'active' : ''}`} key={symb}
-          onClick={() => setLetter(symb)}> {symb.toUpperCase()} </span>)}
+          onClick={() => setLetter(symb)}>{symb.toUpperCase()}</span>)}
       </div>
 
       {alphabetLoading

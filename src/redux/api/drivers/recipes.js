@@ -23,5 +23,10 @@ export const recipes = {
   getAlphabet: (letter) => {
     return axios.get(`${URL}search.php?f=${letter}`);
   },
+
+  getAllAreas: () => {
+    return axios.get(`${URL}list.php?a=list`);
+
+  },
 };
 
