@@ -19,5 +19,9 @@ export const recipes = {
   getMeal: (id) => {
     return axios.get(`${URL}lookup.php?i=${id}`);
   },
+
+  getAlphabet: (letter) => {
+    return axios.get(`${URL}search.php?f=${letter}`);
+  },
 };
 

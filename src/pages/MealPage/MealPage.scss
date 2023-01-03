@@ -21,6 +21,7 @@
     width: 50%;
     height: auto;
     border-radius: 10px;
+    position: relative;
 
     & img{
       width: 100%;
@@ -31,14 +32,35 @@
     }
   }
 
+  &__image-info{
+    background-color:  rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    color: white;
+
+    & a{
+      color: white;
+    }
+  }
+
   &__instructions{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 20px;
     text-align: left;
     font-size: 20px;
+    margin-bottom: 50px;
+    & p{
+      white-space: pre-line;
+    }
+    & h3{
+      align-self: center;
+    }
   }
   &__ingredients{
     padding: 5px;
@@ -47,19 +69,18 @@
     align-items: center;
     justify-content: flex-start;
     gap: 30px;
+    text-align: left;
   }
   &__ingredients:not(:last-child){
     border-bottom: 1px solid gray;
   }
+
   &__list{
-    //width: 55%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     border-bottom: 1px solid gray;
-    //flex-direction: column;
-    //align-items: flex-start;
-    //justify-content: flex-start;
   }
+
   &__ingredientImage{
     width: 100px;
     height: auto;

@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import YouTube from 'react-youtube';
+import {Link, useParams} from "react-router-dom";
 //_____________________________________________________________________________________
 import './MealPage.scss'
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import {
   GET_MEAL_REQUEST,
 } from "../../redux/actions/recipes";
-import {useParams} from "react-router-dom";
 //_____________________________________________________________________________________
 
 const MealPage = () => {
@@ -17,7 +18,7 @@ const MealPage = () => {
   const mealState = useSelector((state) => state.recipes.meal);
   //const mealLoading = useSelector((state) => state.recipes.loading);
 
-  console.log(mealState, 'mealState')
+  let videoID = mealState?.strYoutube?.replace('https://www.youtube.com/watch?v=', '')
 
   useEffect(() => {
     dispatch({
@@ -26,16 +27,30 @@ const MealPage = () => {
     })
   }, [params])
 
+  const opts = {
+    height: '500',
+    width: '1000',
+    //playerVars: {autoplay: 1,},
+  };
+
 
   return (
     <main className='meal container'>
       <BreadCrumbs name={mealState?.strMeal}/>
 
+
       <h1 className='meal__title'>{mealState?.strMeal}</h1>
+
 
       <div className='meal__info'>
         <div className='meal__image'>
           <img src={mealState?.strMealThumb} title={mealState?.strMealThumb} alt={mealState?.strMealThumb}/>
+
+          <div className='meal__image-info'>
+            <p>Area: <Link className='hoverLink' to={`/${mealState?.strCategory}`}>{mealState?.strArea}</Link></p>
+            <p>Category: <Link className='hoverLink' to={`/${mealState?.strCategory}`}>{mealState?.strCategory}</Link></p>
+          </div>
+
         </div>
 
         <div>
@@ -44,20 +59,20 @@ const MealPage = () => {
             {arr.map((elem) => {
               return (
                 mealState[`strIngredient${elem}`]
-                  ? <div className='meal__ingredients' key={mealState?.idMeal}>
-                    <div className='meal__ingredientImage'>
-                      <img
-                        src={`https://www.themealdb.com/images/ingredients/${mealState[`strIngredient${elem}`]}.png`}
-                        title={mealState[`strIngredient${elem}`]}
-                        alt={mealState[`strIngredient${elem}`]}
-                      />
-                    </div>
-
-                    <p className='meal__measure'>
-                      {mealState[`strIngredient${elem}`]} - {mealState[`strMeasure${elem}`]}
-                    </p>
+                && <div className='meal__ingredients' key={elem}>
+                  <div className='meal__ingredientImage'>
+                    <img
+                      src={`https://www.themealdb.com/images/ingredients/${mealState[`strIngredient${elem}`]}.png`}
+                      title={mealState[`strIngredient${elem}`]}
+                      alt={mealState[`strIngredient${elem}`]}
+                    />
                   </div>
-                  : ''
+
+                  <p className='meal__measure'>
+                    {mealState[`strIngredient${elem}`]} - {mealState[`strMeasure${elem}`]}
+                  </p>
+                </div>
+
               )
             })}
           </div>
@@ -70,10 +85,11 @@ const MealPage = () => {
         <p>{mealState?.strInstructions}</p>
       </div>
 
-
-      {/*<iframe width="420" height="315" src={mealState?.strYoutube}>*/}
-      {/*</iframe>*/}
-
+      <YouTube
+        videoId={videoID}
+        opts={opts}
+        onReady={(e) => e.target.pauseVideo()}
+      />
 
     </main>
   );

@@ -40,9 +40,19 @@ function* getMeal(action) {
   }
 }
 
+function* getAlphabet(action) {
+  try {
+    const res = yield call(Api.recipes.getAlphabet, action.payload);
+    yield put({type: recipesActions.GET_ALPHABET_SUCCESS, payload: res.data.meals});
+  } catch (err) {
+    yield put({type: recipesActions.GET_ALPHABET_FAIL, payload: {error: err.message}});
+  }
+}
+
 export default all([
   takeLatest(recipesActions.GET_RECIPES_CATEGORIES_REQUEST, getRecipesCategories),
   takeLatest(recipesActions.FILTER_RECIPES_BY_CATEGORIES_REQUEST, filterRecipesByCategories),
   takeLatest(recipesActions.GET_LATEST_RECIPES_REQUEST, getLatestRecipes),
   takeLatest(recipesActions.GET_MEAL_REQUEST, getMeal),
+  takeLatest(recipesActions.GET_ALPHABET_REQUEST, getAlphabet),
 ])

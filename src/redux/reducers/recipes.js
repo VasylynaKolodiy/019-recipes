@@ -11,6 +11,9 @@ import {
   GET_MEAL_REQUEST,
   GET_MEAL_SUCCESS,
   GET_MEAL_FAIL,
+  GET_ALPHABET_REQUEST,
+  GET_ALPHABET_SUCCESS,
+  GET_ALPHABET_FAIL,
 } from "../actions/recipes";
 //_____________________________________________________________________________________
 
@@ -96,6 +99,25 @@ export default function recipes(state = initialState, action) {
       };
 
     case GET_MEAL_FAIL:
+      return {
+        ...state,
+        loading: false,
+      };
+
+    case GET_ALPHABET_REQUEST:
+      return {
+        ...state,
+        loading: true
+      };
+
+    case GET_ALPHABET_SUCCESS:
+      return {
+        ...state,
+        recipes: action.payload,
+        loading: false,
+      };
+
+    case GET_ALPHABET_FAIL:
       return {
         ...state,
         loading: false,

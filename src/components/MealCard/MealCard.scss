@@ -3,22 +3,27 @@
   margin: 0 10px;
   cursor: pointer;
   overflow: hidden;
-  &:hover{
+  color: white;
+
+  &:hover {
     .mealCard__image{
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
   }
 
-  &__image{
-    transition: .3s linear;
-  }
-
-  &__image img {
+  &__image {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    transform: scale(1.1);
+    transition: .3s linear;
 
+    & img {
+      width: 100%;
+      height: auto;
+      object-fit: fill;
+    }
   }
+
 
   &__name {
     padding: 7px;
@@ -35,14 +40,14 @@
     right: 0;
     width: 20px;
     height: 20px;
-    border-bottom: 100px solid rgba(255, 0, 0, 0.7);
-    border-left: 100px solid transparent;
+    border-bottom: 130px solid rgba(255, 0, 0, 0.7);
+    border-left: 130px solid transparent;
   }
 
-  &__area{
+  &__area {
     position: absolute;
-    top: 46px;
-    left: -72px;
+    top: 70px;
+    left: -90px;
     transform: rotate(-45deg);
   }
 

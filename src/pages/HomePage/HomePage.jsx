@@ -17,8 +17,6 @@ const HomePage = () => {
   const latestRecipesState = useSelector((state) => state.recipes.latestRecipes);
   //const latestRecipesLoading = useSelector((state) => state.recipes.loading);
 
-  console.log(latestRecipesState, 'latestRecipesState')
-
   useEffect(() => {
     dispatch({
       type: GET_RECIPES_CATEGORIES_REQUEST,

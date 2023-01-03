@@ -3,6 +3,7 @@ import React from "react";
 import HomePage from "../pages/HomePage/HomePage";
 import SingleCategoryPage from "../pages/SingleCategoryPage/SingleCategoryPage";
 import MealPage from "../pages/MealPage/MealPage";
+import AlphabetPage from "../pages/AlphabetPage/AlphabetPage";
 //_____________________________________________________________________________________
 
 export const privateRoutes = [
@@ -19,6 +20,11 @@ export const privateRoutes = [
   {
     path: "/:categoryName/:mealID",
     component: <MealPage/>,
+    exact: true,
+  },
+  {
+    path: "/alphabet",
+    component: <AlphabetPage/>,
     exact: true,
   },
   {

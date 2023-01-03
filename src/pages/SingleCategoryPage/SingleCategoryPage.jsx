@@ -21,8 +21,6 @@ const SingleCategoryPage = () => {
     })
   }, [params])
 
-  console.log(recipesByCategoryState[0], 'recipesByCategoryState[0]')
-
   return (
     <main className='singleCategory container'>
 

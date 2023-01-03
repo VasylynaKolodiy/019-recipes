@@ -9,7 +9,7 @@ html {
   background-size: cover;
   scroll-behavior: smooth;
   background-color: black;
-  color: white;
+  color: gray;
 }
 
 li {
@@ -22,10 +22,11 @@ a {
 }
 
 .hoverLink{
-  color: white;
+  color: gray;
   position: relative;
   transition: .3s linear;
   &:hover{
+    color: white;
     &::after{
       width: 100%;
       left: 0;
@@ -42,6 +43,9 @@ a {
     right: 0;
     transition: .3s linear;
   }
+}
+.hoverLink.active{
+  color: white;
 }
 
 img {
