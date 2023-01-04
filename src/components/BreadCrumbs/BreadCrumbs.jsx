@@ -4,7 +4,10 @@ import {Link, useLocation} from "react-router-dom";
 
 const BreadCrumbs = ({name}) => {
   const location = useLocation();
-  const data = location.pathname.split('/').slice(1);
+  let data = location.pathname.split('/').slice(1);
+
+  //DELETE SEARCH
+  data = data.filter((elem) => elem !== 'search')
 
   return (
     <section className="breadcrumbs">

@@ -1,55 +1,38 @@
-import React, {useState} from 'react';
+import React from 'react';
 import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button";
-import FormControl from "@mui/material/FormControl";
-import Autocomplete from "@mui/material/Autocomplete";
+import {useNavigate} from "react-router-dom";
 //_____________________________________________________________________________________
 import './FilterForm.scss'
 //_____________________________________________________________________________________
 
-const FilterForm = ({areas}) => {
+const FilterForm = ({searchValue, onChangeSearchValue}) => {
 
-  const [searchValue, setSearchValue] = useState('')
-  console.log(searchValue, 'searchValue')
-
-  const [areaValue, setAreaValue] = useState([])
-
-  function handleSelectChange(event, values) {
-    setAreaValue(values)
-  }
+  const navigate = useNavigate()
 
   return (
-    <form className='filterForm' onSubmit={(event) => event.preventDefault()}>
+    <form
+      className='filterForm'
+      onSubmit={(event) => event.preventDefault()}
+    >
 
-      <FormControl className='filterForm__formControl'>
-        <TextField
-          className="filterForm__search"
-          id="filterForm__search"
-          label="Search field"
-          type="search"
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-        <Button variant="outlined">Outlined</Button>
-      </FormControl>
+      <TextField
+        className="filterForm__search"
+        id="filterForm__search"
+        label="Search field"
+        type="search"
+        value={searchValue}
+        onChange={(e) => onChangeSearchValue(e.target.value)}
+      />
 
-      <FormControl className='filterForm__formControl'>
-        {<Autocomplete
-          className="filterForm__selectArea"
-          id="filterForm__selectArea"
-          options={areas}
-          value={areaValue}
-          onChange={handleSelectChange}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              variant="standard"
-              label="Select area"
-              placeholder="Areas"
-            />
-          )}
-        />}
-      </FormControl>
+      <Button
+        className="filterForm__button"
+        variant="outlined"
+        onClick={() => navigate(`/search/${searchValue}`)}
+        disabled={!searchValue}
+      >
+        Search
+      </Button>
 
     </form>
   );

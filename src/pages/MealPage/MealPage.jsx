@@ -18,7 +18,7 @@ const MealPage = () => {
   const mealState = useSelector((state) => state.recipes.meal);
   //const mealLoading = useSelector((state) => state.recipes.loading);
 
-  let videoID = mealState?.strYoutube?.replace('https://www.youtube.com/watch?v=', '')
+  let videoID = (String(mealState?.strYoutube))?.replace('https://www.youtube.com/watch?v=', '')
 
   useEffect(() => {
     dispatch({
@@ -33,14 +33,11 @@ const MealPage = () => {
     //playerVars: {autoplay: 1,},
   };
 
-
   return (
     <main className='meal container'>
       <BreadCrumbs name={mealState?.strMeal}/>
 
-
       <h1 className='meal__title'>{mealState?.strMeal}</h1>
-
 
       <div className='meal__info'>
         <div className='meal__image'>

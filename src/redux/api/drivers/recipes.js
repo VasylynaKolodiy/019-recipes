@@ -26,7 +26,10 @@ export const recipes = {
 
   getAllAreas: () => {
     return axios.get(`${URL}list.php?a=list`);
+  },
 
+  searchByName: (name) => {
+    return axios.get(`${URL}search.php?s=${name}`);
   },
 };
 

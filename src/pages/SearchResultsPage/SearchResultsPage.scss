@@ -1,14 +1,13 @@
-.singleCategory {
+.searchResults{
   margin-top: 100px;
 
-  &__title{
-    margin-bottom: 50px;
+  .filterForm{
+    margin: 0 auto 50px auto;
   }
 
-  .mealsList {
+  .mealsList{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 30px 10px;
   }
-
 }

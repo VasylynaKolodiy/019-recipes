@@ -58,6 +58,15 @@ function* getAllAreas() {
   }
 }
 
+function* searchByName(action) {
+  try {
+    const res = yield call(Api.recipes.searchByName, action.payload);
+    yield put({type: recipesActions.SEARCH_MEAL_BY_NAME_SUCCESS, payload: res.data.meals});
+  } catch (err) {
+    yield put({type: recipesActions.SEARCH_MEAL_BY_NAME_FAIL, payload: {error: err.message}});
+  }
+}
+
 export default all([
   takeLatest(recipesActions.GET_RECIPES_CATEGORIES_REQUEST, getRecipesCategories),
   takeLatest(recipesActions.FILTER_RECIPES_BY_CATEGORIES_REQUEST, filterRecipesByCategories),
@@ -65,4 +74,5 @@ export default all([
   takeLatest(recipesActions.GET_MEAL_REQUEST, getMeal),
   takeLatest(recipesActions.GET_ALPHABET_REQUEST, getAlphabet),
   takeLatest(recipesActions.GET_ALL_AREAS_REQUEST, getAllAreas),
+  takeLatest(recipesActions.SEARCH_MEAL_BY_NAME_REQUEST, searchByName),
 ])

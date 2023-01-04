@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import SingleCategoryPage from "../pages/SingleCategoryPage/SingleCategoryPage";
 import MealPage from "../pages/MealPage/MealPage";
 import AlphabetPage from "../pages/AlphabetPage/AlphabetPage";
+import SearchResultsPage from "../pages/SearchResultsPage/SearchResultsPage";
 //_____________________________________________________________________________________
 
 export const privateRoutes = [
@@ -25,6 +26,16 @@ export const privateRoutes = [
   {
     path: "/alphabet",
     component: <AlphabetPage/>,
+    exact: true,
+  },
+  {
+    path: "/search/:mealName",
+    component: <SearchResultsPage/>,
+    exact: true,
+  },
+  {
+    path: "/search",
+    component: <SearchResultsPage/>,
     exact: true,
   },
   {

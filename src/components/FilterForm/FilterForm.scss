@@ -2,24 +2,36 @@
   margin-bottom: 50px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
+  justify-content: space-between;
   gap: 30px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 30px;
   height: max-content;
   width: 50%;
-  padding: 15px;
+  padding: 20px;
 
-  &__formControl{
-    width: 100%;
-    display: flex !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    gap: 10px;
+  &__search{
+    width: 80%;
   }
 
+  input{
+    color: white;
+  }
 
+  label {
+    color: white;
+  }
 
+  fieldset{
+    border-color: white;
+  }
 
+  &__button{
+    height: 56px;
+  }
+
+  &__button:disabled{
+    border-color: gray !important;
+    color: gray !important;
+  }
 }

@@ -4,6 +4,7 @@ import './AlphabetPage.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {GET_ALPHABET_REQUEST} from "../../redux/actions/recipes";
 import MealCard from "../../components/MealCard/MealCard";
+import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 //_____________________________________________________________________________________
 
 const AlphabetPage = () => {
@@ -25,6 +26,9 @@ const AlphabetPage = () => {
 
   return (
     <main className='alphabet container'>
+
+      <BreadCrumbs/>
+
       <div className='alphabet__list'>
         {alphabet.map((symb) => <span
           className={`alphabet__letter ${letter.toUpperCase() === symb.toUpperCase() ? 'active' : ''}`} key={symb}
