@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 //_____________________________________________________________________________________
 import './FilterForm.scss'
 //_____________________________________________________________________________________
 
 const FilterForm = ({searchValue, onChangeSearchValue}) => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <form
@@ -33,6 +37,7 @@ const FilterForm = ({searchValue, onChangeSearchValue}) => {
       >
         Search
       </Button>
+
 
     </form>
   );

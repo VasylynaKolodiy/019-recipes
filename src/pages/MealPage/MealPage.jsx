@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import YouTube from 'react-youtube';
-import {Link, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 //_____________________________________________________________________________________
 import './MealPage.scss'
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
@@ -32,6 +32,7 @@ const MealPage = () => {
     width: '1000',
     //playerVars: {autoplay: 1,},
   };
+  const navigate = useNavigate();
 
   return (
     <main className='meal container'>
@@ -56,7 +57,11 @@ const MealPage = () => {
             {arr.map((elem) => {
               return (
                 mealState[`strIngredient${elem}`]
-                && <div className='meal__ingredients' key={elem}>
+                && <div
+                  className='meal__ingredients'
+                  onClick={() => navigate(`/ingredient/${mealState[`strIngredient${elem}`]}`)}
+                  key={elem}
+                >
                   <div className='meal__ingredientImage'>
                     <img
                       src={`https://www.themealdb.com/images/ingredients/${mealState[`strIngredient${elem}`]}.png`}

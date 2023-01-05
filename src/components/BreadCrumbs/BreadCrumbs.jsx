@@ -8,6 +8,8 @@ const BreadCrumbs = ({name}) => {
 
   //DELETE SEARCH
   data = data.filter((elem) => elem !== 'search')
+  data = data.filter((elem) => elem !== 'ingredient')
+  data = data.map((elem) => elem.replace('%20', ' '))
 
   return (
     <section className="breadcrumbs">

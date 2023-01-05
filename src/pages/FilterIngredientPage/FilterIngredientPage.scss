@@ -1,4 +1,4 @@
-.searchResults{
+.filterIngredient{
   margin-top: 100px;
 
   .filterForm{
@@ -10,8 +10,4 @@
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 30px 10px;
   }
-}
-
-body{
-  padding-right: 0 !important;
 }

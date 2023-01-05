@@ -20,6 +20,9 @@ import {
   SEARCH_MEAL_BY_NAME_REQUEST,
   SEARCH_MEAL_BY_NAME_SUCCESS,
   SEARCH_MEAL_BY_NAME_FAIL,
+  FILTER_RECIPES_BY_INGREDIENT_REQUEST,
+  FILTER_RECIPES_BY_INGREDIENT_SUCCESS,
+  FILTER_RECIPES_BY_INGREDIENT_FAIL,
 } from "../actions/recipes";
 //_____________________________________________________________________________________
 
@@ -167,6 +170,26 @@ export default function recipes(state = initialState, action) {
         ...state,
         loading: false,
       };
+
+    case FILTER_RECIPES_BY_INGREDIENT_REQUEST:
+      return {
+        ...state,
+        loading: true
+      };
+
+    case FILTER_RECIPES_BY_INGREDIENT_SUCCESS:
+      return {
+        ...state,
+        recipes: action.payload,
+        loading: false,
+      };
+
+    case FILTER_RECIPES_BY_INGREDIENT_FAIL:
+      return {
+        ...state,
+        loading: false,
+      };
+
 
     default:
       return state;

@@ -31,5 +31,9 @@ export const recipes = {
   searchByName: (name) => {
     return axios.get(`${URL}search.php?s=${name}`);
   },
+
+  filterByIngredient: (ingredient) => {
+    return axios.get(`${URL}filter.php?i=${ingredient}`);
+  },
 };
 

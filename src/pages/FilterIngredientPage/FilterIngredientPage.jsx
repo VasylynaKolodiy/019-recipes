@@ -2,52 +2,51 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 //_____________________________________________________________________________________
-import './SearchResultsPage.scss'
-import {FILTER_RECIPES_BY_INGREDIENT_REQUEST, SEARCH_MEAL_BY_NAME_REQUEST} from "../../redux/actions/recipes";
+import './FilterIngredientPage.scss'
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
+import {FILTER_RECIPES_BY_INGREDIENT_REQUEST} from "../../redux/actions/recipes";
 import FilterForm from "../../components/FilterForm/FilterForm";
 import MealCard from "../../components/MealCard/MealCard";
 //_____________________________________________________________________________________
 
-const SearchResultsPage = () => {
-
+const FilterIngredientPage = () => {
   const params = useParams().mealName;
   const dispatch = useDispatch();
-  const searchMealsState = useSelector((state) => state.recipes.recipes);
-  const searchMealsLoading = useSelector((state) => state.recipes.loading);
+  const selectIngredientState = useSelector((state) => state.recipes.recipes);
+  const selectIngredientLoading = useSelector((state) => state.recipes.loading);
 
-  const [searchMeal, setSearchMeal] = useState(params)
-  const onChangeSearchMeal = (e) => {
-    setSearchMeal(e)
+  const [selectIngredient, setSelectIngredient] = useState(params)
+  const onChangeSelectIngredient = (e) => {
+    setSelectIngredient(e)
   }
 
   useEffect(() => {
     dispatch({
-      type: SEARCH_MEAL_BY_NAME_REQUEST,
+      type: FILTER_RECIPES_BY_INGREDIENT_REQUEST,
       payload: params,
     })
-  }, [params])
+  }, [params, selectIngredient])
 
   return (
-    <main className='searchResults container'>
+    <main className='filterIngredient container'>
 
       <BreadCrumbs name={params}/>
 
       <FilterForm
-        searchValue={searchMeal}
-        onChangeSearchValue={onChangeSearchMeal}
+        searchValue={selectIngredient}
+        onChangeSearchValue={setSelectIngredient}
       />
 
-      {searchMealsLoading
+      {selectIngredientLoading
         ? <h3>Loading...</h3>
-        : searchMealsState
+        : selectIngredientState
           ? <div className='mealsList'>
-            {searchMealsState.map((recipe) => (
+            {selectIngredientState.map((recipe) => (
               <MealCard meal={recipe} key={recipe.idMeal}/>
             ))
             }
           </div>
-          : !searchMeal || !params
+          : !selectIngredient || !params
             ? <h3>Enter search meal</h3>
             : <h3>No results</h3>
       }
@@ -56,4 +55,4 @@ const SearchResultsPage = () => {
   );
 };
 
-export default SearchResultsPage;
+export default FilterIngredientPage;
