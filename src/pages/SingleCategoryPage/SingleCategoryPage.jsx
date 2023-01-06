@@ -31,7 +31,7 @@ const SingleCategoryPage = () => {
       {recipesByCategoryLoading
         ? <h3>Loading...</h3>
         : <div className='mealsList'>
-          {recipesByCategoryState.map((recipe) => (
+          {recipesByCategoryState?.map((recipe) => (
             <MealCard meal={recipe} key={recipe.idMeal}/>
           ))
           }

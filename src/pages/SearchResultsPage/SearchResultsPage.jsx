@@ -3,9 +3,9 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 //_____________________________________________________________________________________
 import './SearchResultsPage.scss'
-import {FILTER_RECIPES_BY_INGREDIENT_REQUEST, SEARCH_MEAL_BY_NAME_REQUEST} from "../../redux/actions/recipes";
+import {SEARCH_MEAL_BY_NAME_REQUEST} from "../../redux/actions/recipes";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
-import FilterForm from "../../components/FilterForm/FilterForm";
+import SearchForm from "../../components/SearchForm/SearchForm";
 import MealCard from "../../components/MealCard/MealCard";
 //_____________________________________________________________________________________
 
@@ -33,7 +33,7 @@ const SearchResultsPage = () => {
 
       <BreadCrumbs name={params}/>
 
-      <FilterForm
+      <SearchForm
         searchValue={searchMeal}
         onChangeSearchValue={onChangeSearchMeal}
       />

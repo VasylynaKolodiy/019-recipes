@@ -24,8 +24,8 @@ export const recipes = {
     return axios.get(`${URL}search.php?f=${letter}`);
   },
 
-  getAllAreas: () => {
-    return axios.get(`${URL}list.php?a=list`);
+  getAllIngredients: () => {
+    return axios.get(`${URL}list.php?i=list`);
   },
 
   searchByName: (name) => {

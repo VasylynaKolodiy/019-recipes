@@ -1,28 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 //_____________________________________________________________________________________
-import './FilterForm.scss'
+import './SearchForm.scss'
 //_____________________________________________________________________________________
 
-const FilterForm = ({searchValue, onChangeSearchValue}) => {
+const SearchForm = ({searchValue, onChangeSearchValue}) => {
 
   const navigate = useNavigate();
 
   return (
     <form
-      className='filterForm'
+      className='searchForm'
       onSubmit={(event) => event.preventDefault()}
     >
 
       <TextField
-        className="filterForm__search"
-        id="filterForm__search"
+        className="searchForm__search"
+        id="searchForm__search"
         label="Search field"
         type="search"
         value={searchValue}
@@ -30,17 +26,15 @@ const FilterForm = ({searchValue, onChangeSearchValue}) => {
       />
 
       <Button
-        className="filterForm__button"
+        className="searchForm__button"
         variant="outlined"
         onClick={() => navigate(`/search/${searchValue}`)}
         disabled={!searchValue}
       >
         Search
       </Button>
-
-
     </form>
   );
 };
 
-export default FilterForm;
+export default SearchForm;

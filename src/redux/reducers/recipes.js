@@ -14,9 +14,9 @@ import {
   GET_ALPHABET_REQUEST,
   GET_ALPHABET_SUCCESS,
   GET_ALPHABET_FAIL,
-  GET_ALL_AREAS_REQUEST,
-  GET_ALL_AREAS_SUCCESS,
-  GET_ALL_AREAS_FAIL,
+  GET_ALL_INGREDIENTS_REQUEST,
+  GET_ALL_INGREDIENTS_SUCCESS,
+  GET_ALL_INGREDIENTS_FAIL,
   SEARCH_MEAL_BY_NAME_REQUEST,
   SEARCH_MEAL_BY_NAME_SUCCESS,
   SEARCH_MEAL_BY_NAME_FAIL,
@@ -32,7 +32,7 @@ const initialState = {
   recipes: [],
   latestRecipes: [],
   meal: {},
-  areas: [],
+  ingredients: [],
 };
 
 export default function recipes(state = initialState, action) {
@@ -133,20 +133,20 @@ export default function recipes(state = initialState, action) {
         loading: false,
       };
 
-    case GET_ALL_AREAS_REQUEST:
+    case  GET_ALL_INGREDIENTS_REQUEST:
       return {
         ...state,
         loading: true
       };
 
-    case GET_ALL_AREAS_SUCCESS:
+    case  GET_ALL_INGREDIENTS_SUCCESS:
       return {
         ...state,
-        areas: action.payload,
+        ingredients: action.payload,
         loading: false,
       };
 
-    case GET_ALL_AREAS_FAIL:
+    case  GET_ALL_INGREDIENTS_FAIL:
       return {
         ...state,
         loading: false,

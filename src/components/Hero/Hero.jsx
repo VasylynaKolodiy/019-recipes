@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 //_____________________________________________________________________________________
 import './Hero.scss'
-import FilterForm from "../FilterForm/FilterForm";
+import SearchForm from "../SearchForm/SearchForm";
 import Arrow from "../Arrow/Arrow";
 //_____________________________________________________________________________________
 
@@ -19,7 +19,7 @@ const Hero = () => {
         <h1 className='hero__title'>It is even better than an expensive cookery book</h1>
         <p className='hero__text'>Learn how to make your favorite restaurant’s dishes</p>
 
-        <FilterForm
+        <SearchForm
           searchValue={searchValue}
           onChangeSearchValue={onChangeSearchValue}
         />

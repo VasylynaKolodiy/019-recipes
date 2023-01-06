@@ -1,28 +1,36 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 //_____________________________________________________________________________________
 import './FilterIngredientPage.scss'
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
-import {FILTER_RECIPES_BY_INGREDIENT_REQUEST} from "../../redux/actions/recipes";
-import FilterForm from "../../components/FilterForm/FilterForm";
+import {FILTER_RECIPES_BY_INGREDIENT_REQUEST, GET_ALL_INGREDIENTS_REQUEST} from "../../redux/actions/recipes";
 import MealCard from "../../components/MealCard/MealCard";
+import FilterIngredientForm from "../../components/FilterIngredientForm/FilterIngredientForm";
 //_____________________________________________________________________________________
 
 const FilterIngredientPage = () => {
-  const params = useParams().mealName;
+  const params = useParams().ingredient;
   const dispatch = useDispatch();
   const selectIngredientState = useSelector((state) => state.recipes.recipes);
   const selectIngredientLoading = useSelector((state) => state.recipes.loading);
+  const ingredientsState = useSelector((state) => state.recipes.ingredients);
 
-  const [selectIngredient, setSelectIngredient] = useState(params)
-  const onChangeSelectIngredient = (e) => {
-    setSelectIngredient(e)
+  const [selectIngredient, setSelectIngredient] = useState(params || '')
+  const navigate = useNavigate();
+
+  function onChangeSelectIngredient(event, values) {
+    setSelectIngredient(values)
+    navigate(`/ingredient/${values}`)
   }
 
   useEffect(() => {
     dispatch({
       type: FILTER_RECIPES_BY_INGREDIENT_REQUEST,
+      payload: params,
+    })
+    dispatch({
+      type: GET_ALL_INGREDIENTS_REQUEST,
       payload: params,
     })
   }, [params, selectIngredient])
@@ -32,9 +40,10 @@ const FilterIngredientPage = () => {
 
       <BreadCrumbs name={params}/>
 
-      <FilterForm
-        searchValue={selectIngredient}
-        onChangeSearchValue={setSelectIngredient}
+      <FilterIngredientForm
+        ingredientsState={ingredientsState}
+        selectIngredient={selectIngredient}
+        onChangeSelectIngredient={onChangeSelectIngredient}
       />
 
       {selectIngredientLoading

@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import YouTube from 'react-youtube';
 import {Link, useNavigate, useParams} from "react-router-dom";
 //_____________________________________________________________________________________
 import './MealPage.scss'
@@ -18,7 +17,7 @@ const MealPage = () => {
   const mealState = useSelector((state) => state.recipes.meal);
   //const mealLoading = useSelector((state) => state.recipes.loading);
 
-  let videoID = (String(mealState?.strYoutube))?.replace('https://www.youtube.com/watch?v=', '')
+  //let videoID = (String(mealState?.strYoutube))?.replace('https://www.youtube.com/watch?v=', '')
 
   useEffect(() => {
     dispatch({
@@ -27,11 +26,10 @@ const MealPage = () => {
     })
   }, [params])
 
-  const opts = {
-    height: '500',
-    width: '1000',
-    //playerVars: {autoplay: 1,},
-  };
+  // const opts = {
+  //   height: '500',
+  //   width: '1000',
+  // };
   const navigate = useNavigate();
 
   return (
@@ -87,11 +85,11 @@ const MealPage = () => {
         <p>{mealState?.strInstructions}</p>
       </div>
 
-      <YouTube
-        videoId={videoID}
-        opts={opts}
-        onReady={(e) => e.target.pauseVideo()}
-      />
+      {/*<YouTube*/}
+      {/*  videoId={videoID}*/}
+      {/*  opts={opts}*/}
+      {/*  onReady={(e) => e.target.pauseVideo()}*/}
+      {/*/>*/}
 
     </main>
   );

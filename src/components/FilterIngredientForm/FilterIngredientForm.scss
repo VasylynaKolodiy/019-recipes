@@ -1,0 +1,20 @@
+.filterIngredientForm {
+
+  display: flex;
+  gap: 30px;
+  margin: 0 auto 50px auto;
+
+  input {
+    color: white !important;
+    border-color: white !important;
+  }
+
+  label {
+    color: white !important;
+  }
+
+  fieldset{
+    border-color: white !important;
+  }
+
+}
