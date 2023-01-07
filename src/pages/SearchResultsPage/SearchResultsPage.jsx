@@ -43,7 +43,10 @@ const SearchResultsPage = () => {
         : searchMealsState
           ? <div className='mealsList'>
             {searchMealsState.map((recipe) => (
-              <MealCard meal={recipe} key={recipe.idMeal}/>
+              <MealCard
+                meal={recipe}
+                category={recipe?.strCategory}
+                key={recipe.idMeal}/>
             ))
             }
           </div>

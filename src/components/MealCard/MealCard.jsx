@@ -1,21 +1,19 @@
 import React from 'react';
-import {useNavigate, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 //_____________________________________________________________________________________
 import './MealCard.scss'
 //_____________________________________________________________________________________
 
 const MealCard = ({meal = {}}) => {
 
-  const navigate = useNavigate();
-  const params = useParams().categoryName;
 
   return (
-    <div
+    <Link
       className='mealCard'
-      onClick={() => navigate(`/${meal?.strCategory ? meal?.strCategory : params}/${meal?.idMeal}`)}
+      to={(`/meal/${meal?.idMeal}`)}
     >
       <div className='mealCard__image'>
-        <img src={meal.strMealThumb} alt={meal.strMealThumb} title={meal.strMealThumb}/>
+        <img src={meal.strMealThumb} alt={meal.strMeal} title={meal.strMeal}/>
       </div>
 
       <h3 className='mealCard__name'>{meal.strMeal}</h3>
@@ -26,7 +24,7 @@ const MealCard = ({meal = {}}) => {
         </p>
       )}
 
-    </div>
+    </Link>
   );
 };
 

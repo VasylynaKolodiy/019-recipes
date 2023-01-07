@@ -16,13 +16,15 @@ const FilterIngredientPage = () => {
   const selectIngredientLoading = useSelector((state) => state.recipes.loading);
   const ingredientsState = useSelector((state) => state.recipes.ingredients);
 
-  const [selectIngredient, setSelectIngredient] = useState(params || '')
+  const [selectIngredient, setSelectIngredient] = useState((params?.split(',')) || [])
   const navigate = useNavigate();
 
   function onChangeSelectIngredient(event, values) {
     setSelectIngredient(values)
     navigate(`/ingredient/${values}`)
   }
+
+  console.log(params, 'params')
 
   useEffect(() => {
     dispatch({
@@ -51,12 +53,15 @@ const FilterIngredientPage = () => {
         : selectIngredientState
           ? <div className='mealsList'>
             {selectIngredientState.map((recipe) => (
-              <MealCard meal={recipe} key={recipe.idMeal}/>
+              <MealCard
+                meal={recipe}
+                category={recipe?.strCategory}
+                key={recipe.idMeal}/>
             ))
             }
           </div>
           : !selectIngredient || !params
-            ? <h3>Enter search meal</h3>
+            ? <h3>Enter ingredient</h3>
             : <h3>No results</h3>
       }
 

@@ -27,6 +27,7 @@ const Hero = () => {
         <a href='#recipesCategories__title'>
           <Arrow/>
         </a>
+
       </div>
     </section>
   );

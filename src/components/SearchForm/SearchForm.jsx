@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 import './SearchForm.scss'
 //_____________________________________________________________________________________
 
-const SearchForm = ({searchValue, onChangeSearchValue}) => {
+const SearchForm = ({searchValue='', onChangeSearchValue}) => {
 
   const navigate = useNavigate();
 

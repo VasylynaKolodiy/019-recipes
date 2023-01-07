@@ -10,22 +10,24 @@ const FilterIngredientForm = ({ingredientsState, selectIngredient, onChangeSelec
 
   const ingredient = ingredientsState.map((elem) => elem.strIngredient)
 
+  selectIngredient = selectIngredient.length === 1 ? [selectIngredient] : selectIngredient
   return (
     <form className='filterIngredientForm'>
 
       <Autocomplete
         id="filterIngredientForm__select"
         sx={{ width: 300 }}
+        //open={true}
         options={ingredient}
-        value={selectIngredient}
+        value={selectIngredient || [ingredient[0]]}
         autoHighlight
         onChange={onChangeSelectIngredient}
-        //multiple
+        multiple
         renderOption={(props, option) => (
           <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
             <img
               loading="lazy"
-              width="30"
+              width="50"
               src={`https://www.themealdb.com/images/ingredients/${option}.png`}
               alt=""
             />
@@ -43,15 +45,6 @@ const FilterIngredientForm = ({ingredientsState, selectIngredient, onChangeSelec
           />
         )}
       />
-
-      {/*<Button*/}
-      {/*  className="filterIngredientForm__button"*/}
-      {/*  variant="outlined"*/}
-      {/*  onClick={() => navigate(`/ingredient/${selectIngredient}`)}*/}
-      {/*  disabled={!selectIngredient}*/}
-      {/*>*/}
-      {/*  Search*/}
-      {/*</Button>*/}
 
     </form>
   );

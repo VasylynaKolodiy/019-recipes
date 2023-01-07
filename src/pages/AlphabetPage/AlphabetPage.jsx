@@ -23,7 +23,7 @@ const AlphabetPage = () => {
     })
   }, [letter])
 
-
+  console.log(alphabetState, 'alphabetState')
   return (
     <main className='alphabet container'>
 
@@ -40,7 +40,11 @@ const AlphabetPage = () => {
         : alphabetState
           ? <div className='alphabet__mealsList'>
             {alphabetState.map((recipe) => (
-              <MealCard meal={recipe} key={recipe.idMeal}/>
+              <MealCard
+                meal={recipe}
+                category={recipe?.strCategory}
+                key={recipe.idMeal}
+              />
             ))
             }
           </div>

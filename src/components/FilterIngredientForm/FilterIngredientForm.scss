@@ -3,6 +3,7 @@
   display: flex;
   gap: 30px;
   margin: 0 auto 50px auto;
+  width: 60%;
 
   input {
     color: white !important;
@@ -17,4 +18,23 @@
     border-color: white !important;
   }
 
+  .MuiAutocomplete-root{
+    width: 100% !important;
+  }
+
+  .MuiButtonBase-root{
+    margin-right: 10px !important;
+  }
+}
+
+.MuiButtonBase-root,
+.MuiSvgIcon-root {
+  color: white !important;
+}
+
+.MuiAutocomplete-option {
+  min-height: 70px !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  color: white !important;
+  border-bottom: 1px solid black !important;
 }

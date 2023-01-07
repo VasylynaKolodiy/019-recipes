@@ -31,7 +31,9 @@ const LatestRecipes = ({meals = []}) => {
       <div className='latestRecipes__list'>
         <Slider {...settings}>
           {meals.map((meal) => (
-            <MealCard meal={meal} key={meal.idMeal}/>
+            <MealCard meal={meal}
+                      category={meal?.strCategory}
+                      key={meal.idMeal}/>
           ))}
         </Slider>
       </div>

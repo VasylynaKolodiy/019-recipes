@@ -13,13 +13,14 @@ const SingleCategoryPage = () => {
   const dispatch = useDispatch();
   const recipesByCategoryState = useSelector((state) => state.recipes.recipes);
   const recipesByCategoryLoading = useSelector((state) => state.recipes.loading);
-
+  console.log(params, 'params')
   useEffect(() => {
     dispatch({
       type: FILTER_RECIPES_BY_CATEGORIES_REQUEST,
       payload: params,
     })
   }, [params])
+
 
   return (
     <main className='singleCategory container'>
@@ -32,7 +33,10 @@ const SingleCategoryPage = () => {
         ? <h3>Loading...</h3>
         : <div className='mealsList'>
           {recipesByCategoryState?.map((recipe) => (
-            <MealCard meal={recipe} key={recipe.idMeal}/>
+            <MealCard
+              meal={recipe}
+              category={params}
+              key={recipe.idMeal}/>
           ))
           }
         </div>

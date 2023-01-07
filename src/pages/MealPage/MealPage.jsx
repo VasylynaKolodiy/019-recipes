@@ -34,7 +34,7 @@ const MealPage = () => {
 
   return (
     <main className='meal container'>
-      <BreadCrumbs name={mealState?.strMeal}/>
+      <BreadCrumbs category={mealState?.strCategory} name={mealState?.strMeal}/>
 
       <h1 className='meal__title'>{mealState?.strMeal}</h1>
 

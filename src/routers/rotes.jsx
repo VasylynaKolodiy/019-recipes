@@ -20,7 +20,7 @@ export const privateRoutes = [
     exact: true,
   },
   {
-    path: "/:categoryName/:mealID",
+    path: "/meal/:mealID",
     component: <MealPage/>,
     exact: true,
   },
