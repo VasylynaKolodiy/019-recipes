@@ -57,7 +57,7 @@ const MealPage = () => {
                 mealState[`strIngredient${elem}`]
                 && <div
                   className='meal__ingredients'
-                  onClick={() => navigate(`/ingredient/${mealState[`strIngredient${elem}`]}`)}
+                  onClick={() => navigate(`/ingredient/${mealState[`strIngredient${elem}`].toLowerCase()}`)}
                   key={elem}
                 >
                   <div className='meal__ingredientImage'>

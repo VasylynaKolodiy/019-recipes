@@ -8,9 +8,8 @@ import './FilterIngredientForm.scss'
 
 const FilterIngredientForm = ({ingredientsState, selectIngredient, onChangeSelectIngredient}) => {
 
-  const ingredient = ingredientsState.map((elem) => elem.strIngredient)
+  const ingredient = ingredientsState.map((elem) => elem.strIngredient.toLowerCase())
 
-  selectIngredient = selectIngredient.length === 1 ? [selectIngredient] : selectIngredient
   return (
     <form className='filterIngredientForm'>
 
@@ -45,7 +44,6 @@ const FilterIngredientForm = ({ingredientsState, selectIngredient, onChangeSelec
           />
         )}
       />
-
     </form>
   );
 };

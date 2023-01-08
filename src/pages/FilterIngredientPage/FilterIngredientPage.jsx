@@ -24,18 +24,21 @@ const FilterIngredientPage = () => {
     navigate(`/ingredient/${values}`)
   }
 
-  console.log(params, 'params')
-
   useEffect(() => {
-    dispatch({
-      type: FILTER_RECIPES_BY_INGREDIENT_REQUEST,
-      payload: params,
-    })
     dispatch({
       type: GET_ALL_INGREDIENTS_REQUEST,
       payload: params,
     })
+  }, [])
+
+  useEffect(() => {
+    dispatch({
+      type: FILTER_RECIPES_BY_INGREDIENT_REQUEST,
+      payload: params || '',
+    })
+
   }, [params, selectIngredient])
+
 
   return (
     <main className='filterIngredient container'>
@@ -51,16 +54,16 @@ const FilterIngredientPage = () => {
       {selectIngredientLoading
         ? <h3>Loading...</h3>
         : selectIngredientState
-          ? <div className='mealsList'>
-            {selectIngredientState.map((recipe) => (
-              <MealCard
-                meal={recipe}
-                category={recipe?.strCategory}
-                key={recipe.idMeal}/>
-            ))
-            }
-          </div>
-          : !selectIngredient || !params
+          ? params && <div className='mealsList'>
+          {selectIngredientState.map((recipe) => (
+            <MealCard
+              meal={recipe}
+              category={recipe?.strCategory}
+              key={recipe.idMeal}/>
+          ))
+          }
+        </div>
+          : !params || !selectIngredient
             ? <h3>Enter ingredient</h3>
             : <h3>No results</h3>
       }
