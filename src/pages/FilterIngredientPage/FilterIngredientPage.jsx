@@ -29,6 +29,9 @@ const FilterIngredientPage = () => {
       type: GET_ALL_INGREDIENTS_REQUEST,
       payload: params,
     })
+
+    window.scrollTo(0, 0)
+
   }, [])
 
   useEffect(() => {

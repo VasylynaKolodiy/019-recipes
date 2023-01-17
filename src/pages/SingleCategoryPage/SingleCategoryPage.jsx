@@ -13,12 +13,15 @@ const SingleCategoryPage = () => {
   const dispatch = useDispatch();
   const recipesByCategoryState = useSelector((state) => state.recipes.recipes);
   const recipesByCategoryLoading = useSelector((state) => state.recipes.loading);
-  console.log(params, 'params')
+
   useEffect(() => {
     dispatch({
       type: FILTER_RECIPES_BY_CATEGORIES_REQUEST,
       payload: params,
     })
+
+    window.scrollTo(0, 0)
+
   }, [params])
 
 

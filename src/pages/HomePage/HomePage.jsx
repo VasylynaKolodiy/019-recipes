@@ -25,6 +25,9 @@ const HomePage = () => {
     dispatch({
       type: GET_LATEST_RECIPES_REQUEST,
     })
+
+    window.scrollTo(0, 0)
+
   }, [])
 
   return (

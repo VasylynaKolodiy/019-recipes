@@ -26,6 +26,9 @@ const SearchResultsPage = () => {
       type: SEARCH_MEAL_BY_NAME_REQUEST,
       payload: params,
     })
+
+    window.scrollTo(0, 0)
+
   }, [params])
 
   return (
