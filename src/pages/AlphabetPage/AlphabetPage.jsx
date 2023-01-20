@@ -18,7 +18,7 @@ const AlphabetPage = () => {
   const alphabetLoading = useSelector((state) => state.recipes.loading);
 
   const LIMIT = 12;
-  let [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(1);
   const TOTAL_COUNT = alphabetState?.length;
   let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT);
 
@@ -59,14 +59,14 @@ const AlphabetPage = () => {
             ))
             }
           </div>
-          : <h3>No results</h3>
+          : <h3>No dishes were found, the name of which would start with a letter {letter.toUpperCase()}</h3>
       }
 
       {countOfPages > 1 &&
       (<Pagination
           className='pagination'
           count={countOfPages}
-          size="large"
+          size="medium"
           page={pageNumber}
           onChange={(event, value) => setPageNumber(value)}
         />

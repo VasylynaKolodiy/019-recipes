@@ -1,11 +1,26 @@
 .filterIngredient{
   margin-top: 100px;
 
-
-
   .mealsList{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 30px 10px;
+  }
+
+  nav{
+    margin: 30px auto;
+    display: inline-block;
+  }
+
+  .Mui-selected{
+    background-color: gray !important;
+  }
+
+  .MuiPaginationItem-root{
+    color: white !important;
+  }
+
+  button:hover{
+    background-color: gray !important;
   }
 }
