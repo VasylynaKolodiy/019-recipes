@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import Pagination from "@mui/material/Pagination";
 //_____________________________________________________________________________________
 import './AlphabetPage.scss'
 import {useDispatch, useSelector} from "react-redux";
@@ -16,15 +17,23 @@ const AlphabetPage = () => {
   const alphabetState = useSelector((state) => state.recipes.recipes);
   const alphabetLoading = useSelector((state) => state.recipes.loading);
 
+  const LIMIT = 12;
+  let [pageNumber, setPageNumber] = useState(1);
+  const TOTAL_COUNT = alphabetState?.length;
+  let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT);
+
   useEffect(() => {
     dispatch({
       type: GET_ALPHABET_REQUEST,
       payload: letter,
     })
-
     window.scrollTo(0, 0)
+  }, [letter, pageNumber])
 
-  }, [letter])
+  const onClickLetter = (symb) => {
+    setLetter(symb);
+    setPageNumber(1)
+  }
 
   return (
     <main className='alphabet container'>
@@ -34,14 +43,14 @@ const AlphabetPage = () => {
       <div className='alphabet__list'>
         {alphabet.map((symb) => <span
           className={`alphabet__letter ${letter.toUpperCase() === symb.toUpperCase() ? 'active' : ''}`} key={symb}
-          onClick={() => setLetter(symb)}>{symb.toUpperCase()}</span>)}
+          onClick={() => onClickLetter(symb)}>{symb.toUpperCase()}</span>)}
       </div>
 
       {alphabetLoading
         ? <h3>Loading...</h3>
         : alphabetState
           ? <div className='alphabet__mealsList'>
-            {alphabetState.map((recipe) => (
+            {alphabetState?.slice(pageNumber * LIMIT - LIMIT, pageNumber * LIMIT).map((recipe) => (
               <MealCard
                 meal={recipe}
                 category={recipe?.strCategory}
@@ -51,8 +60,17 @@ const AlphabetPage = () => {
             }
           </div>
           : <h3>No results</h3>
-
       }
+
+      {countOfPages > 1 &&
+      (<Pagination
+          className='pagination'
+          count={countOfPages}
+          size="large"
+          page={pageNumber}
+          onChange={(event, value) => setPageNumber(value)}
+        />
+      )}
 
     </main>
   );

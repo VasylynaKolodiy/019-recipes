@@ -10,10 +10,15 @@ const SearchForm = ({searchValue='', onChangeSearchValue}) => {
 
   const navigate = useNavigate();
 
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+    navigate(`/search/${searchValue}`)
+  }
+
   return (
     <form
       className='searchForm'
-      onSubmit={(event) => event.preventDefault()}
+      onSubmit={(event) => onSubmitForm(event)}
     >
 
       <TextField
@@ -28,7 +33,7 @@ const SearchForm = ({searchValue='', onChangeSearchValue}) => {
       <Button
         className="searchForm__button"
         variant="outlined"
-        onClick={() => navigate(`/search/${searchValue}`)}
+        type='submit'
         disabled={!searchValue}
       >
         Search
