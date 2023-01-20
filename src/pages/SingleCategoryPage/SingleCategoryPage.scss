@@ -1,14 +1,53 @@
 .singleCategory {
-  margin-top: 100px;
+  margin-top: -360px;
+  position: relative;
+  min-height: 1200px;
 
-  &__title{
+  &__title {
     margin-bottom: 50px;
+    width: 80%;
   }
 
   .mealsList {
+    width: 80%;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 30px 10px;
+  }
+
+  &__list {
+    position: sticky;
+    width: 15%;
+    top: 170px;
+    right: 50px;
+    margin: 0 0 0 auto;
+  }
+
+  &__listTitle{
+    margin-bottom: 20px;
+  }
+
+  nav {
+    //margin: 30px auto;
+    display: block;
+    max-width: 80%;
+  }
+
+  nav ul{
+    width: max-content;
+    margin: 30px auto;
+  }
+
+  .Mui-selected {
+    background-color: gray !important;
+  }
+
+  .MuiPaginationItem-root {
+    color: white !important;
+  }
+
+  button:hover {
+    background-color: gray !important;
   }
 
 }

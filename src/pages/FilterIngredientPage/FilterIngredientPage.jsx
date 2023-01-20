@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import Pagination from "@mui/material/Pagination";
 //_____________________________________________________________________________________
 import './FilterIngredientPage.scss'
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import {FILTER_RECIPES_BY_INGREDIENT_REQUEST, GET_ALL_INGREDIENTS_REQUEST} from "../../redux/actions/recipes";
 import MealCard from "../../components/MealCard/MealCard";
 import FilterIngredientForm from "../../components/FilterIngredientForm/FilterIngredientForm";
-import Pagination from "@mui/material/Pagination";
 //_____________________________________________________________________________________
 
 const FilterIngredientPage = () => {
@@ -24,8 +24,6 @@ const FilterIngredientPage = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const TOTAL_COUNT = selectIngredientState?.length;
   let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT_ING);
-
-  console.log(selectIngredientState, 'selectIngredientState')
 
   useEffect(() => {
     dispatch({
@@ -78,7 +76,6 @@ const FilterIngredientPage = () => {
             ? <h3>Enter ingredient</h3>
             : <h3>No dishes were found with the ingredients: {selectIngredient.join(' and ')}</h3>
       }
-
 
       {ingredient && countOfPages > 1 &&
       (<Pagination
