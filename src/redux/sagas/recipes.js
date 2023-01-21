@@ -76,6 +76,15 @@ function* filterByIngredient(action) {
   }
 }
 
+function* getRecipesAreas() {
+  try {
+    const res = yield call(Api.recipes.getRecipesAreas);
+    yield put({type: recipesActions.GET_RECIPES_AREAS_SUCCESS, payload: res.data.meals});
+  } catch (err) {
+    yield put({type: recipesActions.GET_RECIPES_AREAS_FAIL, payload: {error: err.message}});
+  }
+}
+
 export default all([
   takeLatest(recipesActions.GET_RECIPES_CATEGORIES_REQUEST, getRecipesCategories),
   takeLatest(recipesActions.FILTER_RECIPES_BY_CATEGORIES_REQUEST, filterRecipesByCategories),
@@ -85,4 +94,5 @@ export default all([
   takeLatest(recipesActions.GET_ALL_INGREDIENTS_REQUEST, getAllIngredients),
   takeLatest(recipesActions.SEARCH_MEAL_BY_NAME_REQUEST, searchByName),
   takeLatest(recipesActions.FILTER_RECIPES_BY_INGREDIENT_REQUEST, filterByIngredient),
+  takeLatest(recipesActions.GET_RECIPES_AREAS_REQUEST, getRecipesAreas),
 ])

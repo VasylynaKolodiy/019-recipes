@@ -23,6 +23,9 @@ import {
   FILTER_RECIPES_BY_INGREDIENT_REQUEST,
   FILTER_RECIPES_BY_INGREDIENT_SUCCESS,
   FILTER_RECIPES_BY_INGREDIENT_FAIL,
+  GET_RECIPES_AREAS_REQUEST,
+  GET_RECIPES_AREAS_SUCCESS,
+  GET_RECIPES_AREAS_FAIL,
 } from "../actions/recipes";
 //_____________________________________________________________________________________
 
@@ -33,6 +36,7 @@ const initialState = {
   latestRecipes: [],
   meal: {},
   ingredients: [],
+  recipesAreas: [],
 };
 
 export default function recipes(state = initialState, action) {
@@ -185,6 +189,25 @@ export default function recipes(state = initialState, action) {
       };
 
     case FILTER_RECIPES_BY_INGREDIENT_FAIL:
+      return {
+        ...state,
+        loading: false,
+      };
+
+    case GET_RECIPES_AREAS_REQUEST:
+      return {
+        ...state,
+        loading: true
+      };
+
+    case GET_RECIPES_AREAS_SUCCESS:
+      return {
+        ...state,
+        recipesAreas: action.payload,
+        loading: false,
+      };
+
+    case GET_RECIPES_AREAS_FAIL:
       return {
         ...state,
         loading: false,

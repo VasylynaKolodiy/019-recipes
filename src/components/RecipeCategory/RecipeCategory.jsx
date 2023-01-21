@@ -9,7 +9,7 @@ const RecipeCategory = ({recipeCategory}) => {
   return (
     <Link
       className='recipeCategory'
-      to={`/${recipeCategory?.strCategory}`}
+      to={`/${recipeCategory?.strCategory ? recipeCategory?.strCategory : recipeCategory?.strArea}`}
     >
       <div className='recipeCategory__image'>
         <img
@@ -21,7 +21,12 @@ const RecipeCategory = ({recipeCategory}) => {
 
       <div className='recipeCategory__info'>
         <h2 className='recipeCategory__title'>
-          {recipeCategory?.idCategory}. {recipeCategory?.strCategory}
+
+          {recipeCategory?.idCategory
+            ? recipeCategory?.strCategory
+            : recipeCategory?.strArea
+          }
+
         </h2>
 
         {/*<p className='recipeCategory__description'>*/}

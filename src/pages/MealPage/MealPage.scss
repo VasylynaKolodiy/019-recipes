@@ -32,17 +32,32 @@
   }
 
   &__image-info{
-    background-color:  rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    padding: 5px;
+    text-align: center;
+    font-size: 22px;
     display: flex;
     gap: 5px;
     flex-direction: column;
+    font-weight: bold;
     color: white;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    transform: rotate(-45deg);
 
     & a{
       color: white;
     }
+  }
+
+  &__image-triangle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 250px 250px 0 0;
+    border-color:  rgba(255, 0, 0, 0.3) transparent transparent transparent;
   }
 
   &__instructions{
@@ -71,6 +86,7 @@
     text-align: left;
     cursor: pointer;
   }
+
   &__ingredients:not(:last-child){
     border-bottom: 1px solid gray;
   }

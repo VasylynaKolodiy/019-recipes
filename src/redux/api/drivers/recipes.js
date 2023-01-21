@@ -35,7 +35,11 @@ export const recipes = {
   filterByIngredient: (ingredient) => {
     ingredient =ingredient.replaceAll(' ', '_')
     return axios.get(`${URL_KEY}filter.php?i=${ingredient}`);
-
   },
+
+  getRecipesAreas: () => {
+    return axios.get(`${URL}list.php?a=list`);
+  },
+
 };
 

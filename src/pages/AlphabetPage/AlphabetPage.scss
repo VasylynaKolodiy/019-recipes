@@ -21,7 +21,7 @@
   &__mealsList{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 30px 10px;
+    grid-gap: 30px 20px;
   }
 
   &__letter.active{
