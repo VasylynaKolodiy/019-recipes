@@ -30,9 +30,6 @@ const FilterIngredientPage = () => {
       type: GET_ALL_INGREDIENTS_REQUEST,
       payload: ingredient,
     })
-
-    window.scrollTo(0, 0)
-
   }, [])
 
   useEffect(() => {
@@ -40,7 +37,6 @@ const FilterIngredientPage = () => {
       type: FILTER_RECIPES_BY_INGREDIENT_REQUEST,
       payload: ingredient || '',
     })
-
   }, [ingredient, selectIngredient])
 
   function onChangeSelectIngredient(event, values) {

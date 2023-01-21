@@ -27,7 +27,6 @@ const AlphabetPage = () => {
       type: GET_ALPHABET_REQUEST,
       payload: letter,
     })
-    window.scrollTo(0, 0)
   }, [letter, pageNumber])
 
   const onClickLetter = (symb) => {

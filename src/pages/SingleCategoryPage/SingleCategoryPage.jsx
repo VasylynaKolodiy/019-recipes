@@ -28,9 +28,6 @@ const SingleCategoryPage = () => {
       type: FILTER_RECIPES_BY_CATEGORIES_REQUEST,
       payload: categoryName,
     })
-
-    window.scrollTo(0, 0)
-
   }, [categoryName])
 
   useEffect(() => {

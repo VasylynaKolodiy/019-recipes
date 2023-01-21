@@ -24,9 +24,6 @@ const MealPage = () => {
       type: GET_MEAL_REQUEST,
       payload: params,
     })
-
-    window.scrollTo(0, 0)
-
   }, [params])
 
   // const opts = {
