@@ -12,6 +12,10 @@ html {
   color: gray;
 }
 
+body{
+  margin-top: 100px;
+}
+
 li {
   list-style: none;
 }
@@ -59,8 +63,6 @@ button{
 
 .App {
   text-align: center;
-  min-height: 100vh;
-  height: max-content;
 }
 
 .container {

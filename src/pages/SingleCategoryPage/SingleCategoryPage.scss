@@ -1,41 +1,42 @@
 .singleCategory {
-  margin-top: -360px;
   position: relative;
-  min-height: 1200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
 
-  &__title {
+  .breadcrumbs{
     margin-bottom: 50px;
+  }
+
+  &__mainPart{
     width: 80%;
   }
 
   .mealsList {
-    width: 80%;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 30px 10px;
   }
 
-  &__list {
+  &__aside{
+    width: 18%;
     position: sticky;
-    width: 15%;
-    top: 170px;
-    right: 50px;
-    margin: 0 0 0 auto;
+    top: 120px;
+    right: 0;
+
+    &Title{
+      margin-bottom: 48px;
+    }
   }
 
-  &__listTitle{
-    margin-bottom: 20px;
-  }
-
+  // pagination
   nav {
-    //margin: 30px auto;
-    display: block;
-    max-width: 80%;
-  }
-
-  nav ul{
-    width: max-content;
-    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
   }
 
   .Mui-selected {

@@ -42,44 +42,44 @@ const SingleCategoryPage = () => {
   return (
     <main className='singleCategory container'>
 
-      <div className='singleCategory__list'>
-        <h3 className='singleCategory__listTitle'>Other categories:</h3>
+      <div className='singleCategory__mainPart'>
+        <BreadCrumbs name={categoryName}/>
+        {/*<h1 className='singleCategory__title'>Recipes by category {categoryName}</h1>*/}
 
+        {recipesByCategoryLoading
+          ? <h3>Loading...</h3>
+          : <div className='mealsList'>
+
+            {recipesByCategoryState?.slice(pageNumber * LIMIT_CAT - LIMIT_CAT, pageNumber * LIMIT_CAT).map((recipe) => (
+              <MealCard
+                meal={recipe}
+                category={categoryName}
+                key={recipe.idMeal}/>
+            ))}
+          </div>
+        }
+
+        {categoryName && countOfPages > 1 &&
+        (<Pagination
+            className='pagination'
+            count={countOfPages}
+            size="medium"
+            page={pageNumber}
+            onChange={(event, value) => setPageNumber(value)}
+          />
+        )}
+      </div>
+
+
+      <aside className='singleCategory__aside'>
+        <h3 className='singleCategory__asideTitle'>Other categories:</h3>
         {recipesCategoriesState?.map((category) => (
           <CategoryItemFromList
             category={category}
             setPageNumber={setPageNumber}
             key={category.idCategory}/>
         ))}
-      </div>
-
-      <BreadCrumbs name={categoryName}/>
-
-      <h1 className='singleCategory__title'>Recipes by category {categoryName}</h1>
-
-      {recipesByCategoryLoading
-        ? <h3>Loading...</h3>
-        : <div className='mealsList'>
-
-          {recipesByCategoryState?.slice(pageNumber * LIMIT_CAT - LIMIT_CAT, pageNumber * LIMIT_CAT).map((recipe) => (
-            <MealCard
-              meal={recipe}
-              category={categoryName}
-              key={recipe.idMeal}/>
-          ))
-          }
-        </div>
-      }
-
-      {categoryName && countOfPages > 1 &&
-      (<Pagination
-          className='pagination'
-          count={countOfPages}
-          size="medium"
-          page={pageNumber}
-          onChange={(event, value) => setPageNumber(value)}
-        />
-      )}
+      </aside>
 
     </main>
   );
