@@ -41,5 +41,9 @@ export const recipes = {
     return axios.get(`${URL}list.php?a=list`);
   },
 
+  filterRecipesByAreas: (area) => {
+    return axios.get(`${URL}filter.php?a=${area}`);
+  },
+
 };
 

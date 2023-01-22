@@ -15,7 +15,12 @@ export const privateRoutes = [
     exact: true,
   },
   {
-    path: "/:categoryName",
+    path: "/category/:categoryName",
+    component: <SingleCategoryPage/>,
+    exact: true,
+  },
+  {
+    path: "/area/:areaName",
     component: <SingleCategoryPage/>,
     exact: true,
   },

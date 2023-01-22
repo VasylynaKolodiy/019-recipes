@@ -26,6 +26,9 @@ import {
   GET_RECIPES_AREAS_REQUEST,
   GET_RECIPES_AREAS_SUCCESS,
   GET_RECIPES_AREAS_FAIL,
+  FILTER_RECIPES_BY_AREAS_REQUEST,
+  FILTER_RECIPES_BY_AREAS_SUCCESS,
+  FILTER_RECIPES_BY_AREAS_FAIL,
 } from "../actions/recipes";
 //_____________________________________________________________________________________
 
@@ -213,6 +216,24 @@ export default function recipes(state = initialState, action) {
         loading: false,
       };
 
+    case FILTER_RECIPES_BY_AREAS_REQUEST:
+      return {
+        ...state,
+        loading: true
+      };
+
+    case FILTER_RECIPES_BY_AREAS_SUCCESS:
+      return {
+        ...state,
+        recipes: action.payload,
+        loading: false,
+      };
+
+    case FILTER_RECIPES_BY_AREAS_FAIL:
+      return {
+        ...state,
+        loading: false,
+      };
 
     default:
       return state;

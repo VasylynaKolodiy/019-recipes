@@ -42,13 +42,14 @@ const MealPage = () => {
         <div className='meal__image'>
           <img src={mealState?.strMealThumb} title={mealState?.strMealThumb} alt={mealState?.strMealThumb}/>
 
-          <div className='meal__image-triangle'>
-          </div>
-          <div className='meal__image-info'>
-              <p>Area: <Link className='hoverLink' to={`/${mealState?.strCategory}`}>{mealState?.strArea}</Link></p>
-              <p>Category: <Link className='hoverLink' to={`/${mealState?.strCategory}`}>{mealState?.strCategory}</Link></p>
-          </div>
+          <div className='meal__image-triangle'/>
 
+          <div className='meal__image-info'>
+            <div>Area: <Link className='hoverLink' to={`/area/${mealState?.strArea}`}>{mealState?.strArea}</Link>
+            </div>
+            <div>Category: <Link className='hoverLink'
+                                 to={`/category/${mealState?.strCategory}`}>{mealState?.strCategory}</Link></div>
+          </div>
         </div>
 
         <div>

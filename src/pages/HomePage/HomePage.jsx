@@ -11,7 +11,7 @@ import {
   GET_RECIPES_AREAS_REQUEST,
   GET_RECIPES_CATEGORIES_REQUEST
 } from "../../redux/actions/recipes";
-import RecipeCategory from "../../components/RecipeCategory/RecipeCategory";
+import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import Hero from "../../components/Hero/Hero";
 import Subscribe from "../../components/Subscribe/Subscribe";
 import LatestRecipes from "../../components/LatestRecipes/LatestRecipes";
@@ -65,7 +65,7 @@ const HomePage = () => {
             ? <h3> Loading... </h3>
             : <div className='homePage__list'>
               {recipesCategoriesState?.map((category) => (
-                <RecipeCategory recipeCategory={category} key={category.idCategory}/>))}
+                <CategoryCard typeCategory='category' recipes={category} key={category.idCategory}/>))}
             </div>
           }
         </div>
@@ -77,7 +77,7 @@ const HomePage = () => {
             ? <h3> Loading... </h3>
             : <div className='homePage__list'>
               {recipesAreasState?.map((area) => (
-                <RecipeCategory recipeCategory={area} key={area.strArea}/>))}
+                <CategoryCard typeCategory='area' recipes={area} key={area.strArea}/>))}
             </div>
           }
         </div>
