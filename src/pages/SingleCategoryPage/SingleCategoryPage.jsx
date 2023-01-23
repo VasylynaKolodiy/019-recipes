@@ -15,7 +15,8 @@ import CategoryItemFromList from "../../components/CategoryItemFromList/Category
 //_____________________________________________________________________________________
 
 const SingleCategoryPage = () => {
-  const {categoryType, categoryName} = useParams();
+  let {categoryType, categoryName} = useParams();
+  categoryName = (categoryName === 'Others') ? 'Unknown' :  categoryName
 
   const dispatch = useDispatch();
   const recipesByCategoryState = useSelector((state) => state.recipes.recipes);

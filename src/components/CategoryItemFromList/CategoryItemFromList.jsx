@@ -12,7 +12,7 @@ const CategoryItemFromList = ({category, setPageNumber}) => {
       <div className='category__item' onClick={() => setPageNumber(1)}>
         <Link
           className='category__link'
-          to={`${categoryType === 'category' ? `/category/${category?.strCategory}` : `/area/${category?.strArea}`}`}
+          to={`${categoryType === 'category' ? `/category/${category?.strCategory}` : `/area/${category?.strArea.replaceAll('Unknown', 'Others')}`}`}
         >
           {categoryType === 'category'
             ? <p
@@ -22,7 +22,7 @@ const CategoryItemFromList = ({category, setPageNumber}) => {
 
             : <p
               className={`category__info ${(category?.strArea === categoryName) ? 'active' : ''}`}>
-              {category?.strArea}
+              {category?.strArea.replaceAll('Unknown', 'Others')}
             </p>
           }
 

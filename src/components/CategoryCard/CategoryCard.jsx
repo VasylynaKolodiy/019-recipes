@@ -9,7 +9,7 @@ const CategoryCard = ({typeCategory, recipes}) => {
   return (
     <Link
       className='categoryCard'
-      to={`/${typeCategory}/${recipes?.strCategory ? recipes?.strCategory : recipes?.strArea}`}
+      to={`/${typeCategory}/${recipes?.strCategory ? recipes?.strCategory : recipes?.strArea.replaceAll('Unknown', 'Others')}`}
     >
 
       {typeCategory === 'category'
@@ -28,7 +28,7 @@ const CategoryCard = ({typeCategory, recipes}) => {
         <h2 className='categoryCard__title'>
           {recipes?.strCategory
             ? recipes?.strCategory
-            : recipes?.strArea
+            : recipes?.strArea.replaceAll('Unknown', 'Others')
           }
         </h2>
       </div>

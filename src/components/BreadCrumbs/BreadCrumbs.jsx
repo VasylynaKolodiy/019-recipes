@@ -11,6 +11,7 @@ const BreadCrumbs = ({category, name}) => {
   data = data.filter((elem) => elem !== 'area')
   data = data.filter((elem) => elem !== 'category')
   data = data.map((elem) => elem.replaceAll('%20', ' '))
+  data = data.map((elem) => elem.replaceAll('Unknown', 'Others'))
 
   return (
     <section className="breadcrumbs">
