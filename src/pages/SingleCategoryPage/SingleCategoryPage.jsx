@@ -15,7 +15,7 @@ import CategoryItemFromList from "../../components/CategoryItemFromList/Category
 //_____________________________________________________________________________________
 
 const SingleCategoryPage = () => {
-  const {categoryName, areaName} = useParams();
+  const {categoryType, categoryName} = useParams();
 
   const dispatch = useDispatch();
   const recipesByCategoryState = useSelector((state) => state.recipes.recipes);
@@ -29,19 +29,19 @@ const SingleCategoryPage = () => {
   let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT_CAT);
 
   useEffect(() => {
-    categoryName
+    categoryType === 'category'
       ? dispatch({
         type: FILTER_RECIPES_BY_CATEGORIES_REQUEST,
         payload: categoryName,
       })
       : dispatch({
         type: FILTER_RECIPES_BY_AREAS_REQUEST,
-        payload: areaName,
+        payload: categoryName,
       })
-  }, [categoryName, areaName])
+  }, [categoryName])
 
   useEffect(() => {
-    categoryName
+    categoryType === 'category'
       ? dispatch({
         type: GET_RECIPES_CATEGORIES_REQUEST,
       })
@@ -70,7 +70,7 @@ const SingleCategoryPage = () => {
           </div>
         }
 
-        {categoryName && countOfPages > 1 &&
+        {categoryType === 'category' && countOfPages > 1 &&
         (<Pagination
             className='pagination'
             count={countOfPages}
@@ -80,7 +80,7 @@ const SingleCategoryPage = () => {
           />
         )}
 
-        {areaName && countOfPages > 1 &&
+        {categoryType === 'area' && countOfPages > 1 &&
         (<Pagination
             className='pagination'
             count={countOfPages}
@@ -92,8 +92,8 @@ const SingleCategoryPage = () => {
       </div>
 
       <aside className='singleCategory__aside'>
-        <h3 className='singleCategory__asideTitle'>Other {categoryName ? 'categories:' : 'areas'}</h3>
-        {categoryName
+        <h3 className='singleCategory__asideTitle'>Other {categoryType === 'category' ? 'categories:' : 'areas'}</h3>
+        {categoryType === 'category'
           ? (recipesCategoriesState?.map((category, i) => (
             <CategoryItemFromList
               category={category}

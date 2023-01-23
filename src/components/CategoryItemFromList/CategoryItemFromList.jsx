@@ -5,23 +5,23 @@ import './CategoryItemFromList.scss'
 //_____________________________________________________________________________________
 
 const CategoryItemFromList = ({category, setPageNumber}) => {
-  const {categoryName} = useParams();
-  const {areaName} = useParams();
+  const {categoryType, categoryName} = useParams();
+
   return (
     <>
       <div className='category__item' onClick={() => setPageNumber(1)}>
         <Link
           className='category__link'
-          to={`${category?.strCategory ? `/category/${category?.strCategory}` : `/area/${category?.strArea}`}`}
+          to={`${categoryType === 'category' ? `/category/${category?.strCategory}` : `/area/${category?.strArea}`}`}
         >
-          {categoryName
+          {categoryType === 'category'
             ? <p
               className={`category__info ${category?.strCategory === categoryName ? 'active' : ''}`}>
               {category?.strCategory}
             </p>
 
             : <p
-              className={`category__info ${(category?.strArea === areaName) ? 'active' : ''}`}>
+              className={`category__info ${(category?.strArea === categoryName) ? 'active' : ''}`}>
               {category?.strArea}
             </p>
           }
