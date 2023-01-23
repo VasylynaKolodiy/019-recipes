@@ -22,7 +22,7 @@ const HomePage = () => {
   const settings = {
     dots: false,
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,

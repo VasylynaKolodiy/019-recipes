@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 //_____________________________________________________________________________________
 import './CategoryCard.scss'
+import {flags} from "../../constants";
 //_____________________________________________________________________________________
 
 const CategoryCard = ({typeCategory, recipes}) => {
@@ -21,17 +22,25 @@ const CategoryCard = ({typeCategory, recipes}) => {
           />
         </div>
 
-        : <div className='categoryCard__image'/>
+        : <div className='categoryCard__flags'>
+          <img
+            src={flags[recipes.strArea]}
+            alt={recipes?.strArea}
+            title={recipes?.strArea}
+          />
+        </div>
       }
 
       <div className='categoryCard__info'>
         <h2 className='categoryCard__title'>
           {recipes?.strCategory
             ? recipes?.strCategory
-            : recipes?.strArea.replaceAll('Unknown', 'Others')
+            : recipes?.strArea?.replaceAll('Unknown', 'Others')
           }
         </h2>
       </div>
+
+
     </Link>
   );
 };
