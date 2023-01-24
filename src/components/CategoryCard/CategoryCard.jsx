@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 //_____________________________________________________________________________________
 import './CategoryCard.scss'
-import {flags} from "../../constants";
+import {nationalsFoods} from "../../constants";
 //_____________________________________________________________________________________
 
 const CategoryCard = ({typeCategory, recipes}) => {
@@ -22,9 +22,9 @@ const CategoryCard = ({typeCategory, recipes}) => {
           />
         </div>
 
-        : <div className='categoryCard__flags'>
+        : <div className='categoryCard__nationalsFoods'>
           <img
-            src={flags[recipes.strArea]}
+            src={nationalsFoods[recipes.strArea]}
             alt={recipes?.strArea}
             title={recipes?.strArea}
           />

@@ -4,9 +4,7 @@ import {Link, useNavigate, useParams} from "react-router-dom";
 //_____________________________________________________________________________________
 import './MealPage.scss'
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
-import {
-  GET_MEAL_REQUEST,
-} from "../../redux/actions/recipes";
+import {GET_MEAL_REQUEST,} from "../../redux/actions/recipes";
 //_____________________________________________________________________________________
 
 const MealPage = () => {
