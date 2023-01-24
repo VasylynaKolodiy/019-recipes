@@ -45,10 +45,10 @@ const MealPage = () => {
           <div className='meal__image-triangle'/>
 
           <div className='meal__image-info'>
-            <div>Area: <Link className='hoverLink' to={`/area/${mealState?.strArea?.replace('Unknown', 'Others')}`}>{mealState?.strArea?.replace('Unknown', 'Others')}</Link>
+            <div>Area: <Link className='hoverLink' to={`/areas/${mealState?.strArea?.replace('Unknown', 'Others')}`}>{mealState?.strArea?.replace('Unknown', 'Others')}</Link>
             </div>
             <div>Category: <Link className='hoverLink'
-                                 to={`/category/${mealState?.strCategory}`}>{mealState?.strCategory}</Link></div>
+                                 to={`/categories/${mealState?.strCategory}`}>{mealState?.strCategory}</Link></div>
           </div>
         </div>
 

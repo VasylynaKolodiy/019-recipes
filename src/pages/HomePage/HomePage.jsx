@@ -31,10 +31,8 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const recipesCategoriesState = useSelector((state) => state.recipes.recipesCategories);
   const recipesCategoriesLoading = useSelector((state) => state.recipes.loading);
-
   const recipesAreasState = useSelector((state) => state.recipes.recipesAreas);
   const recipesAreasLoading = useSelector((state) => state.recipes.loading);
-
   const latestRecipesState = useSelector((state) => state.recipes.latestRecipes);
 
   useEffect(() => {
@@ -57,33 +55,29 @@ const HomePage = () => {
       <Hero/>
 
       <div className='homePage__container container'>
-      <Slider {...settings}>
+        <Slider {...settings}>
+          <div>
+            <h1 className='homePage__title' id='recipesCategories__title'> Recipes categories </h1>
+            {recipesCategoriesLoading
+              ? <h3> Loading... </h3>
+              : <div className='homePage__list'>
+                {recipesCategoriesState?.map((category) => (
+                  <CategoryCard typeCategory='categories' recipes={category} key={category.idCategory}/>))}
+              </div>
+            }
+          </div>
 
-        <div>
-          <h1 className='homePage__title' id='recipesCategories__title'> Recipes categories </h1>
-          {recipesCategoriesLoading
-            ? <h3> Loading... </h3>
-            : <div className='homePage__list'>
-              {recipesCategoriesState?.map((category) => (
-                <CategoryCard typeCategory='category' recipes={category} key={category.idCategory}/>))}
-            </div>
-          }
-        </div>
-
-
-        <div>
-          <h1 className='homePage__title' id='recipesCategories__title'> Recipes areas </h1>
-          {recipesAreasLoading
-            ? <h3> Loading... </h3>
-            : <div className='homePage__list'>
-              {recipesAreasState?.map((area) => (
-                <CategoryCard typeCategory='area' recipes={area} key={area.strArea}/>))}
-            </div>
-          }
-        </div>
-
-
-      </Slider>
+          <div>
+            <h1 className='homePage__title' id='recipesCategories__title'> Recipes areas </h1>
+            {recipesAreasLoading
+              ? <h3> Loading... </h3>
+              : <div className='homePage__list'>
+                {recipesAreasState?.map((area) => (
+                  <CategoryCard typeCategory='areas' recipes={area} key={area.strArea}/>))}
+              </div>
+            }
+          </div>
+        </Slider>
       </div>
 
       <Subscribe/>

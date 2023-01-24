@@ -8,8 +8,8 @@ const BreadCrumbs = ({category, name}) => {
 
   //DELETE SEARCH
   //data = data.filter((elem) => elem !== 'search')
-  data = data.filter((elem) => elem !== 'area')
-  data = data.filter((elem) => elem !== 'category')
+  data = data.filter((elem) => elem !== 'areas')
+  data = data.filter((elem) => elem !== 'categories')
   data = data.map((elem) => elem.replaceAll('%20', ' '))
   data = data.map((elem) => elem.replaceAll('Unknown', 'Others'))
 
@@ -44,7 +44,7 @@ const BreadCrumbs = ({category, name}) => {
             <Link className="breadcrumbs__first-item-link hoverLink" to='/'>Home</Link>
           </li>
           <li className="breadcrumbs__item">
-            <Link className="breadcrumbs__first-item-link hoverLink" to={`/category/${category}`}> {category} </Link>
+            <Link className="breadcrumbs__first-item-link hoverLink" to={`/categories/${category}`}> {category} </Link>
           </li>
           <li className="breadcrumbs__item">
             <span className="breadcrumbs__item-link">{name}</span>

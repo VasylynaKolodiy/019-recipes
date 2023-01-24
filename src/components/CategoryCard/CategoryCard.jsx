@@ -13,7 +13,7 @@ const CategoryCard = ({typeCategory, recipes}) => {
       to={`/${typeCategory}/${recipes?.strCategory ? recipes?.strCategory : recipes?.strArea.replaceAll('Unknown', 'Others')}`}
     >
 
-      {typeCategory === 'category'
+      {typeCategory === 'categories'
         ? <div className='categoryCard__image'>
           <img
             src={recipes?.strCategoryThumb}

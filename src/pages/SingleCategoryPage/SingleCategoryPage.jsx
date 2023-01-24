@@ -4,11 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import Pagination from "@mui/material/Pagination";
 //_____________________________________________________________________________________
 import './SingleCategoryPage.scss'
-import {
-  FILTER_RECIPES_BY_AREAS_REQUEST,
-  FILTER_RECIPES_BY_CATEGORIES_REQUEST, GET_RECIPES_AREAS_REQUEST,
-  GET_RECIPES_CATEGORIES_REQUEST
-} from "../../redux/actions/recipes";
 import MealCard from "../../components/MealCard/MealCard";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import CategoryItemFromList from "../../components/CategoryItemFromList/CategoryItemFromList";
@@ -16,39 +11,33 @@ import CategoryItemFromList from "../../components/CategoryItemFromList/Category
 
 const SingleCategoryPage = () => {
   let {categoryType, categoryName} = useParams();
-  categoryName = (categoryName === 'Others') ? 'Unknown' :  categoryName
+  categoryName = (categoryName === 'Others') ? 'Unknown' : categoryName
 
   const dispatch = useDispatch();
   const recipesByCategoryState = useSelector((state) => state.recipes.recipes);
   const recipesByCategoryLoading = useSelector((state) => state.recipes.loading);
-  const recipesCategoriesState = useSelector((state) => state.recipes.recipesCategories);
-  const recipesAreasState = useSelector((state) => state.recipes.recipesAreas);
+  const recipesCatArea = 'recipes' + categoryType[0].toUpperCase() + categoryType.substring(1)
+  const recipesCategoriesAreasState = useSelector((state) => state.recipes[recipesCatArea]);
 
   const LIMIT_CAT = 12;
   const [pageNumber, setPageNumber] = useState(1);
   const TOTAL_COUNT = recipesByCategoryState?.length;
   let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT_CAT);
 
+  const FILTER_TYPE = 'FILTER_RECIPES_BY_' + categoryType.toUpperCase() + "_REQUEST"
+  const GET_TYPE = 'GET_RECIPES_' + categoryType.toUpperCase() + "_REQUEST"
+
   useEffect(() => {
-    categoryType === 'category'
-      ? dispatch({
-        type: FILTER_RECIPES_BY_CATEGORIES_REQUEST,
-        payload: categoryName,
-      })
-      : dispatch({
-        type: FILTER_RECIPES_BY_AREAS_REQUEST,
-        payload: categoryName,
-      })
+    dispatch({
+      type: FILTER_TYPE,
+      payload: categoryName,
+    })
   }, [categoryName])
 
   useEffect(() => {
-    categoryType === 'category'
-      ? dispatch({
-        type: GET_RECIPES_CATEGORIES_REQUEST,
-      })
-      : dispatch({
-        type: GET_RECIPES_AREAS_REQUEST,
-      })
+    dispatch({
+      type: GET_TYPE,
+    })
   }, [])
 
   return (
@@ -56,12 +45,10 @@ const SingleCategoryPage = () => {
 
       <div className='singleCategory__mainPart'>
         <BreadCrumbs name={categoryName}/>
-        {/*<h1 className='singleCategory__title'>Recipes by category {categoryName}</h1>*/}
 
         {recipesByCategoryLoading
           ? <h3>Loading...</h3>
           : <div className='mealsList'>
-
             {recipesByCategoryState?.slice(pageNumber * LIMIT_CAT - LIMIT_CAT, pageNumber * LIMIT_CAT).map((recipe) => (
               <MealCard
                 meal={recipe}
@@ -71,17 +58,7 @@ const SingleCategoryPage = () => {
           </div>
         }
 
-        {categoryType === 'category' && countOfPages > 1 &&
-        (<Pagination
-            className='pagination'
-            count={countOfPages}
-            size="medium"
-            page={pageNumber}
-            onChange={(event, value) => setPageNumber(value)}
-          />
-        )}
-
-        {categoryType === 'area' && countOfPages > 1 &&
+        {countOfPages > 1 &&
         (<Pagination
             className='pagination'
             count={countOfPages}
@@ -93,23 +70,13 @@ const SingleCategoryPage = () => {
       </div>
 
       <aside className='singleCategory__aside'>
-        <h3 className='singleCategory__asideTitle'>Other {categoryType === 'category' ? 'categories:' : 'areas'}</h3>
-        {categoryType === 'category'
-          ? (recipesCategoriesState?.map((category, i) => (
-            <CategoryItemFromList
-              category={category}
-              setPageNumber={setPageNumber}
-              key={i}/>
-          )))
-
-          : (recipesAreasState?.map((category, i) => (
-            <CategoryItemFromList
-              category={category}
-              setPageNumber={setPageNumber}
-              key={i}/>
-          )))
-
-        }
+        <h3 className='singleCategory__asideTitle'>Other {categoryType}:</h3>
+        {recipesCategoriesAreasState?.map((category, i) => (
+          <CategoryItemFromList
+            category={category}
+            setPageNumber={setPageNumber}
+            key={i}/>
+        ))}
       </aside>
 
     </main>

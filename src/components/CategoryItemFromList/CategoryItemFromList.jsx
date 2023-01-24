@@ -8,27 +8,16 @@ const CategoryItemFromList = ({category, setPageNumber}) => {
   const {categoryType, categoryName} = useParams();
 
   return (
-    <>
-      <div className='category__item' onClick={() => setPageNumber(1)}>
-        <Link
-          className='category__link'
-          to={`${categoryType === 'category' ? `/category/${category?.strCategory}` : `/area/${category?.strArea.replaceAll('Unknown', 'Others')}`}`}
-        >
-          {categoryType === 'category'
-            ? <p
-              className={`category__info ${category?.strCategory === categoryName ? 'active' : ''}`}>
-              {category?.strCategory}
-            </p>
-
-            : <p
-              className={`category__info ${(category?.strArea === categoryName) ? 'active' : ''}`}>
-              {category?.strArea.replaceAll('Unknown', 'Others')}
-            </p>
-          }
-
-        </Link>
-      </div>
-    </>
+    <div className='category__item' onClick={() => setPageNumber(1)}>
+      <Link
+        className='category__link'
+        to={`/${categoryType}/${category?.strCategory || category?.strArea?.replaceAll('Unknown', 'Others')}`}>
+        <p
+          className={`category__info ${(category?.strCategory === categoryName || category?.strArea === categoryName) ? 'active' : ''}`}>
+          {category?.strCategory || category?.strArea?.replaceAll('Unknown', 'Others')}
+        </p>
+      </Link>
+    </div>
   );
 };
 
