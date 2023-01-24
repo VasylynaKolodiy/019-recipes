@@ -7,6 +7,7 @@ import './SingleCategoryPage.scss'
 import MealCard from "../../components/MealCard/MealCard";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import CategoryItemFromList from "../../components/CategoryItemFromList/CategoryItemFromList";
+import SkeletonsSingleCategoryPage from "../../components/Skeletons/SkeletonsSingleCategoryPage";
 //_____________________________________________________________________________________
 
 const SingleCategoryPage = () => {
@@ -47,7 +48,7 @@ const SingleCategoryPage = () => {
         <BreadCrumbs name={categoryName}/>
 
         {recipesByCategoryLoading
-          ? <h3>Loading...</h3>
+          ? <SkeletonsSingleCategoryPage/>
           : <div className='mealsList'>
             {recipesByCategoryState?.slice(pageNumber * LIMIT_CAT - LIMIT_CAT, pageNumber * LIMIT_CAT).map((recipe) => (
               <MealCard
