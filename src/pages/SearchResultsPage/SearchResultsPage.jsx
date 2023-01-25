@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import Pagination from "@mui/material/Pagination";
 //_____________________________________________________________________________________
 import './SearchResultsPage.scss'
 import {SEARCH_MEAL_BY_NAME_REQUEST} from "../../redux/actions/recipes";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import MealCard from "../../components/MealCard/MealCard";
-import Pagination from "@mui/material/Pagination";
+import SkeletonsCategoriesList from "../../components/Skeletons/SkeletonsCategoriesList";
 //_____________________________________________________________________________________
 
 const SearchResultsPage = () => {
@@ -45,7 +46,7 @@ const SearchResultsPage = () => {
       />
 
       {searchMealsLoading
-        ? <h3>Loading...</h3>
+        ? <SkeletonsCategoriesList />
         : searchMealsState
           ? <div className='mealsList'>
             {searchMealsState?.slice(pageNumber * LIMIT_SEARCH - LIMIT_SEARCH, pageNumber * LIMIT_SEARCH).map((recipe) => (

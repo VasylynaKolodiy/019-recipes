@@ -20,7 +20,7 @@ const MealCard = ({meal = {}}) => {
 
       {meal.strArea && (
         <p className='mealCard__triangle'>
-          <span className='mealCard__area'>{meal.strArea} {meal.strCategory}</span>
+          <span className='mealCard__area'>{meal.strArea?.replace('Unknown', 'Others')} {meal.strCategory}</span>
         </p>
       )}
 
