@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {GET_ALPHABET_REQUEST} from "../../redux/actions/recipes";
 import MealCard from "../../components/MealCard/MealCard";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
-import SkeletonsCategoriesList from "../../components/Skeletons/SkeletonsCategoriesList";
+import SkeletonsCards from "../../components/Skeletons/SkeletonsCards";
 //_____________________________________________________________________________________
 
 const AlphabetPage = () => {
@@ -18,10 +18,10 @@ const AlphabetPage = () => {
   const alphabetState = useSelector((state) => state.recipes.recipes);
   const alphabetLoading = useSelector((state) => state.recipes.loading);
 
-  const LIMIT = 12;
+  const LIMIT_ALPHABET = 15;
   const [pageNumber, setPageNumber] = useState(1);
   const TOTAL_COUNT = alphabetState?.length;
-  let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT);
+  let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT_ALPHABET);
 
   useEffect(() => {
     dispatch({
@@ -47,10 +47,10 @@ const AlphabetPage = () => {
       </div>
 
       {alphabetLoading
-        ? <SkeletonsCategoriesList/>
+        ? <SkeletonsCards countOfCards={LIMIT_ALPHABET}/>
         : alphabetState
           ? <div className='alphabet__mealsList'>
-            {alphabetState?.slice(pageNumber * LIMIT - LIMIT, pageNumber * LIMIT).map((recipe) => (
+            {alphabetState?.slice(pageNumber * LIMIT_ALPHABET - LIMIT_ALPHABET, pageNumber * LIMIT_ALPHABET).map((recipe) => (
               <MealCard
                 meal={recipe}
                 category={recipe?.strCategory}

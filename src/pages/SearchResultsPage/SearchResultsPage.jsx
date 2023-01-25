@@ -8,7 +8,7 @@ import {SEARCH_MEAL_BY_NAME_REQUEST} from "../../redux/actions/recipes";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import MealCard from "../../components/MealCard/MealCard";
-import SkeletonsCategoriesList from "../../components/Skeletons/SkeletonsCategoriesList";
+import SkeletonsCards from "../../components/Skeletons/SkeletonsCards";
 //_____________________________________________________________________________________
 
 const SearchResultsPage = () => {
@@ -46,7 +46,7 @@ const SearchResultsPage = () => {
       />
 
       {searchMealsLoading
-        ? <SkeletonsCategoriesList />
+        ? <SkeletonsCards countOfCards={LIMIT_SEARCH}/>
         : searchMealsState
           ? <div className='mealsList'>
             {searchMealsState?.slice(pageNumber * LIMIT_SEARCH - LIMIT_SEARCH, pageNumber * LIMIT_SEARCH).map((recipe) => (

@@ -1,19 +1,19 @@
 import React from 'react';
 import Skeleton from "@mui/material/Skeleton";
 //_____________________________________________________________________________________
-import './SkeletonsCategoriesList.scss'
+import './SkeletonsCards.scss'
 //_____________________________________________________________________________________
 
-const SkeletonsCategoriesList = () => {
-  const cardsList = Array.from({length: 12}, (_, index) => index + 1);
+const SkeletonsCards = ({countOfCards}) => {
+  const cardsList = Array.from({length: countOfCards}, (_, index) => index + 1);
 
   return (
-    <section className='skeletonsList'>
+    <section className='skeletonsCards'>
 
         {cardsList.map((item, i) =>
-          <div className='skeletonsList__item' key={i}>
+          <div className='skeletonsCards__item' key={i}>
             <Skeleton
-              className='skeletonsList__card'
+              className='skeletonsCards__card'
               variant="rectangular"
               width='100%'
               height={255}
@@ -25,4 +25,4 @@ const SkeletonsCategoriesList = () => {
   );
 };
 
-export default SkeletonsCategoriesList;
+export default SkeletonsCards;

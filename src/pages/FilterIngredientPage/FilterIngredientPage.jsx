@@ -8,6 +8,7 @@ import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import {FILTER_RECIPES_BY_INGREDIENT_REQUEST, GET_ALL_INGREDIENTS_REQUEST} from "../../redux/actions/recipes";
 import MealCard from "../../components/MealCard/MealCard";
 import FilterIngredientForm from "../../components/FilterIngredientForm/FilterIngredientForm";
+import SkeletonsCards from "../../components/Skeletons/SkeletonsCards";
 //_____________________________________________________________________________________
 
 const FilterIngredientPage = () => {
@@ -20,10 +21,10 @@ const FilterIngredientPage = () => {
   const [selectIngredient, setSelectIngredient] = useState((ingredient?.split(',')) || [])
   const navigate = useNavigate();
 
-  const LIMIT_ING = 15;
+  const LIMIT_INGREDIENT = 15;
   const [pageNumber, setPageNumber] = useState(1);
   const TOTAL_COUNT = selectIngredientState?.length;
-  let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT_ING);
+  let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT_INGREDIENT);
 
   useEffect(() => {
     dispatch({
@@ -57,10 +58,10 @@ const FilterIngredientPage = () => {
       />
 
       {selectIngredientLoading
-        ? <h3>Loading...</h3>
+        ? ingredient && <SkeletonsCards countOfCards={LIMIT_INGREDIENT}/>
         : selectIngredientState
           ? ingredient && <div className='mealsList'>
-          {selectIngredientState?.slice(pageNumber * LIMIT_ING - LIMIT_ING, pageNumber * LIMIT_ING).map((recipe) => (
+          {selectIngredientState?.slice(pageNumber * LIMIT_INGREDIENT - LIMIT_INGREDIENT, pageNumber * LIMIT_INGREDIENT).map((recipe) => (
             <MealCard
               meal={recipe}
               category={recipe?.strCategory}
@@ -73,7 +74,7 @@ const FilterIngredientPage = () => {
             : <h3>No dishes were found with the ingredients: {selectIngredient.join(' and ')}</h3>
       }
 
-      {countOfPages > 1 &&
+      {ingredient && countOfPages > 1 &&
       (<Pagination
           className='pagination'
           count={countOfPages}

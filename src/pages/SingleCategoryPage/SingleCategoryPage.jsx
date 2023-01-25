@@ -7,7 +7,7 @@ import './SingleCategoryPage.scss'
 import MealCard from "../../components/MealCard/MealCard";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import CategoryItemFromList from "../../components/CategoryItemFromList/CategoryItemFromList";
-import SkeletonsCategoriesList from "../../components/Skeletons/SkeletonsCategoriesList";
+import SkeletonsCards from "../../components/Skeletons/SkeletonsCards";
 import SkeletonsCategoriesAside from "../../components/Skeletons/SkeletonsCategoriesAside";
 //_____________________________________________________________________________________
 
@@ -21,10 +21,10 @@ const SingleCategoryPage = () => {
   const recipesCatArea = 'recipes' + categoryType[0].toUpperCase() + categoryType.substring(1)
   const recipesCategoriesAreasState = useSelector((state) => state.recipes[recipesCatArea]);
 
-  const LIMIT_CAT = 12;
+  const LIMIT_CATEGORY = 12;
   const [pageNumber, setPageNumber] = useState(1);
   const TOTAL_COUNT = recipesByCategoryState?.length;
-  let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT_CAT);
+  let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT_CATEGORY);
 
   const FILTER_TYPE = 'FILTER_RECIPES_BY_' + categoryType.toUpperCase() + "_REQUEST"
   const GET_TYPE = 'GET_RECIPES_' + categoryType.toUpperCase() + "_REQUEST"
@@ -49,9 +49,9 @@ const SingleCategoryPage = () => {
         <BreadCrumbs name={categoryName}/>
 
         {recipesByCategoryLoading
-          ? <SkeletonsCategoriesList/>
+          ? <SkeletonsCards countOfCards={LIMIT_CATEGORY}/>
           : <div className='mealsList'>
-            {recipesByCategoryState?.slice(pageNumber * LIMIT_CAT - LIMIT_CAT, pageNumber * LIMIT_CAT).map((recipe) => (
+            {recipesByCategoryState?.slice(pageNumber * LIMIT_CATEGORY - LIMIT_CATEGORY, pageNumber * LIMIT_CATEGORY).map((recipe) => (
               <MealCard
                 meal={recipe}
                 category={categoryName}
