@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate, useParams} from "react-router-dom";
-import YouTube, {YouTubeProps} from 'react-youtube';
+import YouTube from 'react-youtube';
 //_____________________________________________________________________________________
 import './MealPage.scss'
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
