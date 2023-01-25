@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {GET_ALPHABET_REQUEST} from "../../redux/actions/recipes";
 import MealCard from "../../components/MealCard/MealCard";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
+import SkeletonsCategoriesList from "../../components/Skeletons/SkeletonsCategoriesList";
 //_____________________________________________________________________________________
 
 const AlphabetPage = () => {
@@ -46,7 +47,7 @@ const AlphabetPage = () => {
       </div>
 
       {alphabetLoading
-        ? <h3>Loading...</h3>
+        ? <SkeletonsCategoriesList/>
         : alphabetState
           ? <div className='alphabet__mealsList'>
             {alphabetState?.slice(pageNumber * LIMIT - LIMIT, pageNumber * LIMIT).map((recipe) => (
