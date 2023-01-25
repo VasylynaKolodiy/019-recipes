@@ -7,7 +7,8 @@ import './SingleCategoryPage.scss'
 import MealCard from "../../components/MealCard/MealCard";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import CategoryItemFromList from "../../components/CategoryItemFromList/CategoryItemFromList";
-import SkeletonsSingleCategoryPage from "../../components/Skeletons/SkeletonsSingleCategoryPage";
+import SkeletonsCategoriesList from "../../components/Skeletons/SkeletonsCategoriesList";
+import SkeletonsCategoriesAside from "../../components/Skeletons/SkeletonsCategoriesAside";
 //_____________________________________________________________________________________
 
 const SingleCategoryPage = () => {
@@ -48,7 +49,7 @@ const SingleCategoryPage = () => {
         <BreadCrumbs name={categoryName}/>
 
         {recipesByCategoryLoading
-          ? <SkeletonsSingleCategoryPage/>
+          ? <SkeletonsCategoriesList/>
           : <div className='mealsList'>
             {recipesByCategoryState?.slice(pageNumber * LIMIT_CAT - LIMIT_CAT, pageNumber * LIMIT_CAT).map((recipe) => (
               <MealCard
@@ -56,8 +57,7 @@ const SingleCategoryPage = () => {
                 category={categoryName}
                 key={recipe.idMeal}/>
             ))}
-          </div>
-        }
+          </div>}
 
         {countOfPages > 1 &&
         (<Pagination
@@ -72,14 +72,16 @@ const SingleCategoryPage = () => {
 
       <aside className='singleCategory__aside'>
         <h3 className='singleCategory__asideTitle'>Other {categoryType}:</h3>
-        {recipesCategoriesAreasState?.map((category, i) => (
-          <CategoryItemFromList
-            category={category}
-            setPageNumber={setPageNumber}
-            key={i}/>
-        ))}
+        {recipesByCategoryLoading
+          ? <SkeletonsCategoriesAside/>
+          : recipesCategoriesAreasState?.map((category, i) => (
+            <CategoryItemFromList
+              category={category}
+              setPageNumber={setPageNumber}
+              key={i}/>
+          ))
+        }
       </aside>
-
     </main>
   );
 };

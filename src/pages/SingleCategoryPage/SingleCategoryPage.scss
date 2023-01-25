@@ -18,6 +18,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 30px 20px;
+    grid-auto-rows: 255px;
   }
 
   &__aside{

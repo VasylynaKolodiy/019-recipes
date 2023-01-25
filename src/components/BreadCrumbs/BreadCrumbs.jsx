@@ -8,6 +8,7 @@ const BreadCrumbs = ({category, name}) => {
 
   //DELETE SEARCH
   //data = data.filter((elem) => elem !== 'search')
+  // REDUCER!!!!
   data = data.filter((elem) => elem !== 'areas')
   data = data.filter((elem) => elem !== 'categories')
   data = data.map((elem) => elem.replaceAll('%20', ' '))
