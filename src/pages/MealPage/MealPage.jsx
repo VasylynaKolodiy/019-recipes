@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate, useParams} from "react-router-dom";
+import YouTube, {YouTubeProps} from 'react-youtube';
 //_____________________________________________________________________________________
 import './MealPage.scss'
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
@@ -8,27 +9,24 @@ import {GET_MEAL_REQUEST,} from "../../redux/actions/recipes";
 //_____________________________________________________________________________________
 
 const MealPage = () => {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-
-  const params = useParams().mealID;
+  const arr = Array.from({length: 20}, (_, index) => index);
+  const navigate = useNavigate();
+  const {mealID} = useParams();
   const dispatch = useDispatch();
   const mealState = useSelector((state) => state.recipes.meal);
   //const mealLoading = useSelector((state) => state.recipes.loading);
-
-  //let videoID = (String(mealState?.strYoutube))?.replace('https://www.youtube.com/watch?v=', '')
+  let videoID = (String(mealState?.strYoutube))?.replace('https://www.youtube.com/watch?v=', '')
+  const opts: YouTubeProps['opts'] = {
+    height: '500',
+    width: '1000',
+  };
 
   useEffect(() => {
     dispatch({
       type: GET_MEAL_REQUEST,
-      payload: params,
+      payload: mealID,
     })
-  }, [params])
-
-  // const opts = {
-  //   height: '500',
-  //   width: '1000',
-  // };
-  const navigate = useNavigate();
+  }, [mealID])
 
   return (
     <main className='meal container'>
@@ -43,7 +41,8 @@ const MealPage = () => {
           <div className='meal__image-triangle'/>
 
           <div className='meal__image-info'>
-            <div>Area: <Link className='hoverLink' to={`/areas/${mealState?.strArea?.replace('Unknown', 'Others')}`}>{mealState?.strArea?.replace('Unknown', 'Others')}</Link>
+            <div>Area: <Link className='hoverLink'
+                             to={`/areas/${mealState?.strArea?.replace('Unknown', 'Others')}`}>{mealState?.strArea?.replace('Unknown', 'Others')}</Link>
             </div>
             <div>Category: <Link className='hoverLink'
                                  to={`/categories/${mealState?.strCategory}`}>{mealState?.strCategory}</Link></div>
@@ -73,24 +72,22 @@ const MealPage = () => {
                     {mealState[`strIngredient${elem}`]} - {mealState[`strMeasure${elem}`]}
                   </p>
                 </div>
-
               )
             })}
           </div>
         </div>
       </div>
 
-
       <div className='meal__instructions'>
         <h3 className='meal__subtitle'>Instructions:</h3>
         <p>{mealState?.strInstructions}</p>
       </div>
 
-      {/*<YouTube*/}
-      {/*  videoId={videoID}*/}
-      {/*  opts={opts}*/}
-      {/*  onReady={(e) => e.target.pauseVideo()}*/}
-      {/*/>*/}
+      <YouTube
+        videoId={videoID}
+        opts={opts}
+        onReady={(e) => e.target.pauseVideo()}
+      />
 
     </main>
   );
