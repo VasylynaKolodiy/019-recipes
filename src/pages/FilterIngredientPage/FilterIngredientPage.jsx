@@ -73,7 +73,7 @@ const FilterIngredientPage = () => {
             : <h3>No dishes were found with the ingredients: {selectIngredient.join(' and ')}</h3>
       }
 
-      {ingredient && countOfPages > 1 &&
+      {countOfPages > 1 &&
       (<Pagination
           className='pagination'
           count={countOfPages}

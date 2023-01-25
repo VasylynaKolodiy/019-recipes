@@ -1,7 +1,7 @@
 import React from 'react';
+import Skeleton from "@mui/material/Skeleton";
 //_____________________________________________________________________________________
 import './SkeletonsCategoriesAside.scss'
-import Skeleton from "@mui/material/Skeleton";
 //_____________________________________________________________________________________
 
 const SkeletonsCategoriesAside = () => {
