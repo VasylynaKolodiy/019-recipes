@@ -40,6 +40,7 @@ const initialState = {
   meal: {},
   ingredients: [],
   recipesAreas: [],
+  loadingCategoryName: false,
 };
 
 export default function recipes(state = initialState, action) {
@@ -48,7 +49,8 @@ export default function recipes(state = initialState, action) {
     case GET_RECIPES_CATEGORIES_REQUEST:
       return {
         ...state,
-        loading: true
+        loading: true,
+        loadingCategoryName: true,
       };
 
     case GET_RECIPES_CATEGORIES_SUCCESS:
@@ -56,12 +58,14 @@ export default function recipes(state = initialState, action) {
         ...state,
         recipesCategories: action.payload,
         loading: false,
+        loadingCategoryName: false,
       };
 
     case GET_RECIPES_CATEGORIES_FAIL:
       return {
         ...state,
         loading: false,
+        loadingCategoryName: false
       };
 
     case FILTER_RECIPES_BY_CATEGORIES_REQUEST:
@@ -200,7 +204,8 @@ export default function recipes(state = initialState, action) {
     case GET_RECIPES_AREAS_REQUEST:
       return {
         ...state,
-        loading: true
+        loading: true,
+        loadingCategoryName: true,
       };
 
     case GET_RECIPES_AREAS_SUCCESS:
@@ -208,12 +213,14 @@ export default function recipes(state = initialState, action) {
         ...state,
         recipesAreas: action.payload,
         loading: false,
+        loadingCategoryName: false,
       };
 
     case GET_RECIPES_AREAS_FAIL:
       return {
         ...state,
         loading: false,
+        loadingCategoryName: false,
       };
 
     case FILTER_RECIPES_BY_AREAS_REQUEST:

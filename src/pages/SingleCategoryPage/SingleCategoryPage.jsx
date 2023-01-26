@@ -18,6 +18,8 @@ const SingleCategoryPage = () => {
   const dispatch = useDispatch();
   const recipesByCategoryState = useSelector((state) => state.recipes.recipes);
   const recipesByCategoryLoading = useSelector((state) => state.recipes.loading);
+  const recipesByCategoryNameLoading = useSelector((state) => state.recipes.loadingCategoryName);
+
   const recipesCatArea = 'recipes' + categoryType[0].toUpperCase() + categoryType.substring(1)
   const recipesCategoriesAreasState = useSelector((state) => state.recipes[recipesCatArea]);
 
@@ -72,7 +74,7 @@ const SingleCategoryPage = () => {
 
       <aside className='singleCategory__aside'>
         <h3 className='singleCategory__asideTitle'>Other {categoryType}:</h3>
-        {recipesByCategoryLoading
+        {recipesByCategoryNameLoading
           ? <SkeletonsCategoriesAside/>
           : recipesCategoriesAreasState?.map((category, i) => (
             <CategoryItemFromList
