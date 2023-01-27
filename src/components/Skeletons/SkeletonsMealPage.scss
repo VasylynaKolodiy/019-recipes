@@ -1,0 +1,62 @@
+.skeletonsMealPage{
+
+  &__title {
+    background: rgba(255, 255, 255, 0.1) !important;
+    margin: 0 auto 50px auto;
+  }
+
+  &__info{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+  }
+
+  &__wrapperImage{
+    width: 50%;
+  }
+
+  &__image{
+    background: rgba(255, 255, 255, 0.1) !important;
+    height: auto;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  &__wrapperInfo{
+   // width: 45%;
+  }
+
+  &__subtitle{
+    background: rgba(255, 255, 255, 0.1) !important;
+    margin: 0 auto 30px auto;
+  }
+
+  &__rowWrapper{
+    width: 100%;
+  }
+
+  &__row{
+    width: 100%;
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    text-align: left;
+  }
+
+  &__rowImage{
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  &__rowText{
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  &__rowLine{
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+}

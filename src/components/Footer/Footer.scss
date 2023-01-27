@@ -1,0 +1,32 @@
+.footer {
+  margin-top: 30px;
+  background: url("../../assets/img/thema-main.jpg") top left no-repeat;
+  justify-self: flex-end;
+
+  .follow__title {
+    margin-bottom: 10px;
+  }
+
+  .follow__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .follow__list__item:hover {
+    & a svg path {
+      fill: white;
+    }
+  }
+
+  .follow__list__item a svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .follow__list__item a svg path {
+    fill: gray;
+    transition: .3s linear;
+  }
+}

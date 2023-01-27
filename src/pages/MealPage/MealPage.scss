@@ -26,7 +26,6 @@
       width: 100%;
       height: auto;
       object-fit: cover;
-      margin-bottom: 30px;
       border-radius: 10px;
     }
   }
@@ -44,7 +43,7 @@
     align-items: flex-end;
   }
 
-  &__image-info {
+  &__image-categories {
     font-size: 22px;
     display: flex;
     gap: 20px;
@@ -63,6 +62,9 @@
     }
   }
 
+  &__wrapper {
+    width: 45%;
+  }
 
   &__instructions {
     display: flex;
@@ -106,10 +108,12 @@
 
   &__ingredientImage {
     width: 100px;
+    min-height: 100px;
     height: auto;
 
     & img {
       height: auto;
+      min-height: 100px;
       width: 100%;
       object-fit: cover;
     }

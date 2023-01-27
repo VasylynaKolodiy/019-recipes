@@ -7,7 +7,7 @@ import logoIcon from '../../assets/img/logo.png'
 
 const Header = () => {
   return (
-    <div className='header'>
+    <header className='header'>
 
       <div className='header__container container'>
         <NavLink className='header__logo' to='/'>
@@ -20,7 +20,7 @@ const Header = () => {
           <NavLink className='hoverLink' to='/ingredient'>Ingredient</NavLink>
         </nav>
       </div>
-    </div>
+    </header>
   );
 };
 
