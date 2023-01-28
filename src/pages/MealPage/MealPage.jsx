@@ -17,6 +17,7 @@ const MealPage = () => {
   const mealState = useSelector((state) => state.recipes.meal);
   const mealLoading = useSelector((state) => state.recipes.loading);
   let videoID = (String(mealState?.strYoutube))?.replace('https://www.youtube.com/watch?v=', '')
+
   const opts = {
     height: '500',
     maxWidth: '1000',
