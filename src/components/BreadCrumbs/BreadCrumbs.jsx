@@ -6,13 +6,13 @@ const BreadCrumbs = ({category, name}) => {
   const location = useLocation();
   let data = location.pathname.split('/').slice(1);
 
-  //DELETE SEARCH
-  //data = data.filter((elem) => elem !== 'search')
-  // REDUCER!!!!
-  data = data.filter((elem) => elem !== 'areas')
-  data = data.filter((elem) => elem !== 'categories')
-  data = data.map((elem) => elem.replaceAll('%20', ' '))
-  data = data.map((elem) => elem.replaceAll('Unknown', 'Others'))
+  data = data.reduce((sum, elem) => {
+    if(elem !== 'areas' && elem !== 'categories'){
+      const res = elem.replaceAll('%20', ' ').replaceAll('Unknown', 'Others');
+      sum.push(res)
+    }
+    return sum
+  }, [])
 
   return (
     <section className="breadcrumbs">

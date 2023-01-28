@@ -13,7 +13,7 @@ html {
 }
 
 body{
-  margin-top: 100px;
+
 }
 
 li {
@@ -62,8 +62,9 @@ button{
 }
 
 .App {
+  padding-top: 100px;
   text-align: center;
-  min-height: 86vh;
+  min-height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -72,7 +73,7 @@ button{
 }
 
 .container {
-  width: 1450px;
+  width: 100vw;
   padding: 20px 50px;
   margin: 0 auto;
 }
