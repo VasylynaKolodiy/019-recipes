@@ -19,7 +19,7 @@ const MealPage = () => {
   let videoID = (String(mealState?.strYoutube))?.replace('https://www.youtube.com/watch?v=', '')
   const opts = {
     height: '500',
-    width: '1000',
+    maxWidth: '1000',
   };
 
   useEffect(() => {
