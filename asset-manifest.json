@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/019-recipes/static/css/main.b47bb66e.css",
+    "main.js": "/019-recipes/static/js/main.e733e5fc.js",
+    "static/media/thema-main.jpg": "/019-recipes/static/media/thema-main.7ddcd190fa85a5ec8a80.jpg",
+    "static/media/thema-subscribe.jpg": "/019-recipes/static/media/thema-subscribe.f3fab20df0a34569ac11.jpg",
+    "static/media/instagram.svg": "/019-recipes/static/media/instagram.081394783bbb24adae94cb0806bb984a.svg",
+    "static/media/pinterest.svg": "/019-recipes/static/media/pinterest.09a708127b01c9d62c2d7e45d3c02788.svg",
+    "static/media/slick.svg": "/019-recipes/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/019-recipes/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/019-recipes/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/019-recipes/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/facebook.svg": "/019-recipes/static/media/facebook.ef2773f24547ba42a1c62e147612acc5.svg",
+    "static/media/twitter.svg": "/019-recipes/static/media/twitter.bf6b0be28e690585e89dcc15fa0bb8b7.svg",
+    "index.html": "/019-recipes/index.html",
+    "main.b47bb66e.css.map": "/019-recipes/static/css/main.b47bb66e.css.map",
+    "main.e733e5fc.js.map": "/019-recipes/static/js/main.e733e5fc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b47bb66e.css",
+    "static/js/main.e733e5fc.js"
+  ]
+}
